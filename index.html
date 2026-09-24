@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Craic Pack — Dublin, 23–25 October</title>
+<meta name="description" content="Three couples, one weekend in Dublin, 23–25 October. The plan, the crew and the pints.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Craic Pack — Dublin, 23–25 October">
+<meta property="og:description" content="Three couples. One weekend. No plan.">
+<meta property="og:url" content="https://seymonislam-sudo.github.io/dublin-2026/">
+<meta property="og:image" content="https://seymonislam-sudo.github.io/dublin-2026/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Craic Pack: six friends in Irish fancy dress">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://seymonislam-sudo.github.io/dublin-2026/preview.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Alegreya:ital,wght@0,400;0,600;0,800;1,400&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -80,6 +91,55 @@ a{color:inherit}
 .ba{display:flex;justify-content:center;gap:0;margin:0 auto 10px;width:max-content;max-width:100%;border:1px solid var(--line);border-radius:999px;background:var(--panel);padding:3px}
 .ba-btn{font:inherit;font-weight:700;font-size:15px;border:0;background:none;color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer;white-space:nowrap}
 .ba-btn[aria-pressed="true"]{background:var(--green);color:#F2E7CD}
+
+/* ---------- Now / Next ---------- */
+#live{padding-top:22px}
+.live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
+.live .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.live .ttl{font-family:'Uncial Antiqua','Alegreya',Georgia,serif;font-size:24px;color:var(--gold-lit);line-height:1.1}
+.live .pill{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 10px;background:rgba(242,231,205,.12);color:#DCCFB0;white-space:nowrap}
+.live .pill.on{background:#B3322B;color:#fff}
+.live .pill.on::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#fff;margin-right:6px;vertical-align:1px;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.live .row{display:grid;grid-template-columns:62px 1fr;gap:10px;padding:10px 0;border-top:1px solid rgba(242,231,205,.15)}
+.live .row:first-of-type{border-top:0;padding-top:0}
+.live .lab{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-lit);padding-top:4px}
+.live .what{font-family:'Alegreya',Georgia,serif;font-weight:800;font-size:20px;line-height:1.2}
+.live .where{color:#DCCFB0;font-size:15px;margin-top:2px}
+.live .when{font-variant-numeric:tabular-nums;color:var(--gold-lit);font-weight:700;font-size:15px;margin-top:4px}
+.live .bar{height:6px;border-radius:3px;background:rgba(242,231,205,.15);overflow:hidden;margin:4px 0 12px}
+.live .bar i{display:block;height:100%;width:0;background:var(--gold-lit);border-radius:3px;transition:width .6s ease}
+.live .acts{display:flex;gap:8px;flex-wrap:wrap}
+.live .acts a,.live .acts button{font:inherit;font-weight:700;font-size:15px;border-radius:10px;padding:9px 14px;cursor:pointer;text-decoration:none;border:0}
+.live .go{background:var(--gold-lit);color:#1E1812}
+.live .ghost{background:transparent;color:#F2E7CD;border:1px solid rgba(242,231,205,.4) !important}
+.live .msg{color:#DCCFB0;font-size:15.5px;margin-bottom:12px}
+.live .extra{margin-top:10px;font-size:14.5px;color:var(--gold-lit)}
+.stop.live-now{background:linear-gradient(90deg,rgba(214,174,85,.18),transparent 80%);border-radius:10px;margin:0 -10px;padding-left:10px;padding-right:10px}
+.stop.live-now .time::after{content:"NOW";display:block;font-size:11px;letter-spacing:.1em;color:#fff;background:#B3322B;border-radius:4px;width:max-content;padding:0 6px;margin-top:4px}
+.stop.flash{animation:flash 1.6s ease}
+@keyframes flash{0%,60%{background:rgba(214,174,85,.35)}100%{background:transparent}}
+
+/* ---------- Split the G ---------- */
+.gbox{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:18px;align-items:center}
+@media (max-width:420px){.gbox{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.gglass{width:100%;max-width:170px;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;cursor:pointer}
+.gglass svg{display:block;width:100%;height:auto;color:var(--ink)}
+.gside h5{font-family:'Alegreya',Georgia,serif;font-size:22px;font-weight:800;line-height:1.2}
+.gside .res{font-size:16px;margin-top:6px;min-height:3em;color:var(--muted)}
+.gside .res b{color:var(--ink)}
+.gside .best{font-size:14.5px;color:var(--muted);margin-top:4px;font-variant-numeric:tabular-nums}
+.gbtns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+@media (max-width:420px){.gbtns{justify-content:center}}
+.gbtns button{font:inherit;font-weight:700;font-size:16px;border-radius:10px;padding:11px 18px;cursor:pointer;border:0;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.gbtns .sip{background:var(--green);color:#F2E7CD}
+.gbtns .sip.held{background:var(--green-2);transform:scale(.97)}
+.gbtns .sip:disabled{opacity:.45;cursor:default}
+.gbtns .again{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.shams{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.shams span{position:absolute;top:-40px;font-size:28px;animation:fall 2.2s ease-in forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(540deg);opacity:.8}}
+@media (prefers-reduced-motion: reduce){.live .pill.on::before,.stop.flash{animation:none}.shams{display:none}}
 .group figcaption{font-family:'Alegreya',Georgia,serif;font-style:italic;color:var(--muted);text-align:center;margin-top:8px;font-size:15.5px}
 .fascia{position:relative}
 .lucky{position:absolute;top:10px;right:10px;border:0;background:none;padding:6px;cursor:pointer;line-height:0;transform-origin:50% 90%}
@@ -378,6 +438,13 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     </div>
   </div>
 
+  <section id="live" aria-labelledby="livettl">
+    <div class="live">
+      <div class="top"><h3 class="ttl" id="livettl" style="margin:0;font-size:24px;color:var(--gold-lit)">Now &amp; Next</h3><span class="pill" id="lvpill">Friday</span></div>
+      <div id="lvbody"></div>
+    </div>
+  </section>
+
   <section id="crew">
     <h3>The Crew</h3>
     <p class="lede">Three couples, one group chat, zero chance of a quiet night in. Tap a photo for their stats.</p>
@@ -610,6 +677,37 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     </div>
   </section>
 
+  <section id="splitg">
+    <h3>Split the G</h3>
+    <p class="lede">The pub test. Take one sip and try to leave the line between the stout and the head exactly through the middle of the G. Hold to sip, let go to stop. One sip per pint.</p>
+    <div class="gbox">
+      <div class="gglass" id="gglass" aria-hidden="true">
+        <svg viewBox="0 0 120 200">
+          <defs><clipPath id="gclip"><path d="M18 10 H102 L93 186 Q92 193 84 193 H36 Q28 193 27 186 Z"/></clipPath></defs>
+          <g clip-path="url(#gclip)">
+            <rect x="0" y="0" width="120" height="200" fill="currentColor" opacity=".05"/>
+            <rect id="gstout" x="0" y="26" width="120" height="180" fill="#241710"/>
+            <rect id="ghead" x="0" y="12" width="120" height="14" fill="#F2E7CD"/>
+            <rect id="gcream" x="0" y="24" width="120" height="3" fill="#C9A77A" opacity=".7"/>
+          </g>
+          <text x="60" y="100" text-anchor="middle" dominant-baseline="central" font-family="'Alegreya',Georgia,serif" font-weight="800" font-size="38" fill="#D6AE55">G</text>
+          <line id="gline" x1="30" x2="90" y1="100" y2="100" stroke="#D6AE55" stroke-width="1.2" stroke-dasharray="3 3" opacity="0"/>
+          <line id="gbound" x1="20" x2="100" y1="26" y2="26" stroke="#B3322B" stroke-width="1.6" opacity="0"/>
+          <path d="M18 10 H102 L93 186 Q92 193 84 193 H36 Q28 193 27 186 Z" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2.5"/>
+        </svg>
+      </div>
+      <div class="gside">
+        <h5 id="gtitle">A fresh pint, settled.</h5>
+        <p class="res" id="gres">Steady hand. Hold the button (or the glass) to sip.</p>
+        <p class="best" id="gbest"></p>
+        <div class="gbtns">
+          <button type="button" class="sip" id="gsip">Hold to sip</button>
+          <button type="button" class="again" id="gagain" hidden>Pour another</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="gloss">
     <h3>Talk Like a Local</h3>
     <p class="lede">A starter kit so we don't embarrass ourselves any more than planned.</p>
@@ -694,6 +792,142 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       document.getElementById('bacap').textContent=caps[v];
     }
     btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.v);});});
+  })();
+
+  // ---------- Now & Next ----------
+  (function(){
+    var M='The Morgan Hotel, 10 Fleet Street, Dublin';
+    var E=[
+      ['2026-10-23T08:50:00+01:00','Wheels up: BA5953','Heathrow T2 to Dublin T2. Aer Lingus check-in.','fri',null,null],
+      ['2026-10-23T10:15:00+01:00','Land in Dublin','One taxi into town. Jeff and Helen are already scouting.','fri',0,[M,'driving']],
+      ['2026-10-23T11:15:00+01:00','Drop bags at The Morgan','10 Fleet St. Then lunch wherever looks good.','fri',1,[M,'walking']],
+      ['2026-10-23T14:45:00+01:00','Viking Splash','Meet at St Stephen\'s Green North, 15 minutes early. Waterproofs.','fri',2,['Viking Splash Tours, St Stephen\'s Green North, Dublin','walking']],
+      ['2026-10-23T16:30:00+01:00','Pints','Wherever we end up.','fri',3,null],
+      ['2026-10-23T20:00:00+01:00','Dinner at Sophie\'s','Rooftop at The Dean, Harcourt St. About 15 minutes\' walk.','fri',4,['Sophie\'s at The Dean, Harcourt Street, Dublin','walking']],
+      ['2026-10-23T22:30:00+01:00','See how we feel','The Palace Bar is next door to the hotel.','fri',5,['The Palace Bar, 21 Fleet Street, Dublin','walking']],
+      ['2026-10-24T08:30:00+01:00','Breakfast at The Morgan','Strong coffee, full Irish.','sat',0,null],
+      ['2026-10-24T12:00:00+01:00','Irish dancing lesson','Merchant\'s Arch, 3 minutes from the hotel. Arms straight.','sat',1,['Merchant\'s Arch, Wellington Quay, Dublin','walking']],
+      ['2026-10-24T14:00:00+01:00','Wander','Ha\'penny Bridge, the Liffey, a pub with the sport on.','sat',2,['Ha\'penny Bridge, Dublin','walking']],
+      ['2026-10-24T19:30:00+01:00','Dinner at The Church','Mary St. Booked. Trad music and dancing later.','sat',3,['The Church, Mary Street, Dublin','walking']],
+      ['2026-10-24T22:00:00+01:00','Trad music','Wherever it\'s loudest. Home is round the corner.','sat',4,null],
+      ['2026-10-25T09:00:00+00:00','Breakfast, slowly','Coffee and quiet reflection.','sun',0,null],
+      ['2026-10-25T12:00:00+00:00','Check out, taxi to the airport','Terminal 2, about 30 minutes.','sun',1,['Dublin Airport Terminal 2','driving']],
+      ['2026-10-25T14:15:00+00:00','Fly home: BA5968','Lands Heathrow 15:35. Pretend to be fine on Monday.','sun',2,null]
+    ].map(function(e){return {t:new Date(e[0]).getTime(),what:e[1],where:e[2],day:e[3],stop:e[4],dest:e[5]};});
+    var LIVE_FROM=new Date('2026-10-23T06:00:00+01:00').getTime();
+    var LIVE_TO=new Date('2026-10-25T15:35:00+00:00').getTime();
+    var CLOCKS=new Date('2026-10-25T01:00:00+00:00').getTime();
+    var sim=null, autoDone=false;
+    var body=document.getElementById('lvbody'), pill=document.getElementById('lvpill');
+    function hhmm(t){return new Date(t).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Dublin'});}
+    function dayname(t){return new Date(t).toLocaleDateString('en-GB',{weekday:'short',timeZone:'Europe/Dublin'});}
+    function until(ms){var m=Math.round(ms/60000);if(m<1)return 'any minute';if(m<60)return 'in '+m+' min';var h=Math.floor(m/60),r=m%60;return 'in '+h+'h'+(r?' '+r+'m':'');}
+    function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function dirs(e){if(!e.dest)return '';return '<a class="go" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(e.dest[0])+'&travelmode='+e.dest[1]+'">'+(e.dest[1]==='driving'?'Taxi route':'Directions')+'</a>';}
+    function stopEl(e){if(e.stop==null)return null;var d=document.getElementById(e.day);return d?d.querySelectorAll('.stop')[e.stop]:null;}
+    function openDay(day){var b=document.querySelector('.days button[data-d="'+day+'"]');if(b)b.click();}
+    function mark(e){document.querySelectorAll('.stop.live-now').forEach(function(x){x.classList.remove('live-now');});var el=e&&stopEl(e);if(el)el.classList.add('live-now');}
+    function render(){
+      var real=Date.now(), now=sim!==null?sim:real;
+      var h='';
+      if(sim===null && now<LIVE_FROM){
+        pill.className='pill';pill.textContent='From Fri 23rd';
+        h='<p class="msg">This goes live on the Friday morning. It\'ll show what\'s on now, what\'s next, how long until it starts, and one-tap directions.</p>'+
+          '<div class="acts"><button type="button" class="ghost" data-sim="2026-10-24T11:20:00+01:00">Preview Saturday</button><button type="button" class="ghost" data-sim="2026-10-23T19:25:00+01:00">Preview Friday night</button></div>';
+        body.innerHTML=h;mark(null);return;
+      }
+      if(now>=LIVE_TO){
+        pill.className='pill';pill.textContent='Done';
+        body.innerHTML='<p class="msg">That was gas. Same again next year?</p>'+(sim!==null?'<div class="acts"><button type="button" class="ghost" data-sim="off">Back to real time</button></div>':'');mark(null);return;
+      }
+      var i=-1;E.forEach(function(e,k){if(e.t<=now)i=k;});
+      var cur=i>=0?E[i]:null, nxt=E[i+1]||null;
+      pill.className=sim!==null?'pill':'pill on';pill.textContent=sim!==null?'Preview · '+dayname(now)+' '+hhmm(now):'Live';
+      if(cur){h+='<div class="row"><div class="lab">Now</div><div><div class="what">'+esc(cur.what)+'</div><div class="where">'+esc(cur.where)+'</div></div></div>';}
+      else{h+='<div class="row"><div class="lab">Now</div><div><div class="what">Getting to Heathrow</div><div class="where">Terminal 2. Passports. Phones charged.</div></div></div>';}
+      if(nxt){
+        var from=cur?cur.t:LIVE_FROM, pct=Math.max(0,Math.min(100,(now-from)/(nxt.t-from)*100));
+        h+='<div class="row"><div class="lab">Next</div><div><div class="what">'+esc(nxt.what)+'</div><div class="where">'+esc(nxt.where)+'</div><div class="when">'+hhmm(nxt.t)+' · '+until(nxt.t-now)+'</div></div></div>';
+        h+='<div class="bar" aria-hidden="true"><i style="width:'+pct.toFixed(1)+'%"></i></div>';
+      }
+      h+='<div class="acts">'+(nxt?dirs(nxt):'')+(cur&&cur.stop!=null?'<button type="button" class="ghost" data-show="1">Show on the plan</button>':'')+(sim!==null?'<button type="button" class="ghost" data-sim="off">Back to real time</button>':'')+'</div>';
+      if(now<CLOCKS && now>new Date('2026-10-24T18:00:00+01:00').getTime()) h+='<p class="extra">☘ Clocks go back an hour tonight. That\'s a bonus hour in the pub.</p>';
+      body.innerHTML=h;
+      mark(cur);
+      if(sim===null && !autoDone && cur){autoDone=true;openDay(cur.day);}
+      body._cur=cur;
+    }
+    body.addEventListener('click',function(ev){
+      var b=ev.target.closest('button');if(!b)return;
+      if(b.dataset.sim){sim=b.dataset.sim==='off'?null:new Date(b.dataset.sim).getTime();if(sim!==null){var c=null;E.forEach(function(e){if(e.t<=sim)c=e;});if(c)openDay(c.day);}render();}
+      else if(b.dataset.show){var c=body._cur;if(!c)return;openDay(c.day);var el=stopEl(c);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}}
+    });
+    render();setInterval(function(){if(sim===null)render();},20000);
+    document.addEventListener('visibilitychange',function(){if(!document.hidden&&sim===null)render();});
+  })();
+
+  // ---------- Split the G ----------
+  (function(){
+    var stout=document.getElementById('gstout'), head=document.getElementById('ghead'), cream=document.getElementById('gcream');
+    var gline=document.getElementById('gline'), gbound=document.getElementById('gbound');
+    var sip=document.getElementById('gsip'), again=document.getElementById('gagain'), glass=document.getElementById('gglass');
+    var res=document.getElementById('gres'), title=document.getElementById('gtitle'), bestEl=document.getElementById('gbest');
+    var TOP=12, HEAD=14, GY=100, MAXL=150;
+    var L=TOP, holding=false, done=false, t0=0, raf=0, last=0, v=0;
+    var KEY='craicpack-splitg', st={best:null,pints:0,splits:0};
+    try{var raw=localStorage.getItem(KEY);if(raw)st=JSON.parse(raw)||st;}catch(e){}
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
+    function showBest(){bestEl.textContent=st.pints?('Your best: '+st.best.toFixed(1)+' mm off · Pints: '+st.pints+(st.splits?' · Perfect splits: '+st.splits:'')):'';}
+    function draw(){head.setAttribute('y',L);cream.setAttribute('y',L+HEAD-2);stout.setAttribute('y',L+HEAD);gbound.setAttribute('y1',L+HEAD);gbound.setAttribute('y2',L+HEAD);}
+    function step(ts){
+      if(!holding)return;
+      var dt=Math.min(.05,(ts-last)/1000);last=ts;
+      var el=(ts-t0)/1000; v=24+75*el;
+      L=Math.min(MAXL,L+v*dt);draw();
+      if(L>=MAXL){stop();return;}
+      raf=requestAnimationFrame(step);
+    }
+    function start(e){
+      if(done||holding)return; if(e&&e.cancelable)e.preventDefault();
+      holding=true;sip.classList.add('held');title.textContent='Glug, glug…';res.textContent='';
+      t0=last=performance.now();raf=requestAnimationFrame(step);
+    }
+    function stop(){
+      if(!holding)return;holding=false;done=true;cancelAnimationFrame(raf);sip.classList.remove('held');sip.disabled=true;
+      var err=(L+HEAD)-GY, a=Math.abs(err), msg, t;
+      if(a<=1.5){t='You split the G!';msg='Absolute legend. Frame it, then drink it.';}
+      else if(a<=4){t='So close.';msg=err>0?'Just a touch too keen.':'Still respectable.';}
+      else if(a<=9){t=err>0?'Bit thirsty there.':'Timid sip.';msg=err>0?'Slow down, it\'s a long weekend.':'Get stuck in.';}
+      else if(a<=20){t=err>0?'Eejit.':'That\'s a sniff, not a sip.';msg=err>0?'The G is a guide, not a suggestion.':'The barman is judging you.';}
+      else{t=err>0?'Half the pint in one go?':'Did you even drink?';msg=err>0?'Respect, but that\'s not how it works.':'Try actually drinking it.';}
+      title.textContent=t;
+      res.innerHTML='<b>'+a.toFixed(1)+' mm</b> '+(err>0?'below':'above')+' the middle. '+msg;
+      gline.setAttribute('opacity','.9');gbound.setAttribute('opacity','1');
+      st.pints++; if(st.best===null||a<st.best)st.best=a; if(a<=1.5)st.splits++; save();showBest();
+      if(a<=1.5)confetti();
+      try{if(a<=1.5&&navigator.vibrate)navigator.vibrate([40,40,80]);}catch(e){}
+      again.hidden=false;again.focus({preventScroll:true});
+    }
+    function pour(){
+      again.hidden=true;gline.setAttribute('opacity','0');gbound.setAttribute('opacity','0');
+      title.textContent='Pouring…';res.textContent='Let it settle. Patience is part of it.';
+      var from=L, t1=performance.now(), dur=900;
+      (function anim(ts){var k=Math.min(1,(ts-t1)/dur);k=1-Math.pow(1-k,3);L=from+(TOP-from)*k;draw();if(k<1)requestAnimationFrame(anim);else{L=TOP;draw();done=false;sip.disabled=false;title.textContent='A fresh pint, settled.';res.textContent='Hold to sip. Let go to stop.';}})(t1);
+    }
+    function confetti(){
+      var box=document.createElement('div');box.className='shams';box.setAttribute('aria-hidden','true');
+      for(var k=0;k<24;k++){var sp=document.createElement('span');sp.textContent='☘';sp.style.left=(Math.random()*100)+'vw';sp.style.animationDelay=(Math.random()*.6)+'s';sp.style.color=['#3FA564','#D6AE55','#1E5C43'][k%3];box.appendChild(sp);}
+      document.body.appendChild(box);setTimeout(function(){box.remove();},3200);
+    }
+    [sip,glass].forEach(function(el){
+      el.addEventListener('pointerdown',function(e){if(el.setPointerCapture)try{el.setPointerCapture(e.pointerId);}catch(x){}start(e);});
+      el.addEventListener('pointerup',stop);el.addEventListener('pointercancel',stop);el.addEventListener('lostpointercapture',stop);
+      el.addEventListener('contextmenu',function(e){e.preventDefault();});
+    });
+    sip.addEventListener('keydown',function(e){if((e.key===' '||e.key==='Enter')&&!e.repeat){e.preventDefault();start();}});
+    sip.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();stop();}});
+    again.addEventListener('click',pour);
+    draw();showBest();
   })();
   // Photo lightbox
   var lb=document.getElementById('lb');
