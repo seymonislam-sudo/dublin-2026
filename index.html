@@ -210,6 +210,14 @@ dialog.morning{width:min(94vw,460px)}
 .grp.bump .gnum{animation:gbump .5s ease}
 @keyframes gbump{40%{transform:scale(1.18);color:var(--gold-lit)}}
 .tally .yl{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#C9BD9E;margin-bottom:2px}
+#tally .tally{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"yl btns" "num btns" "ver ver";column-gap:14px;row-gap:2px;align-items:center;padding:16px 18px}
+#tally .tally > div:first-child{display:contents}
+#tally .tally .yl{grid-area:yl;margin:0}
+#tally .tally .n{grid-area:num;font-size:48px}
+#tally .tally .verdict{grid-area:ver;max-width:none;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4}
+#tally .tally .btns{grid-area:btns;justify-self:end;align-self:center}
+@media (max-width:359px){#tally .tally{grid-template-areas:"yl yl" "num num" "ver ver" "btns btns"}#tally .tally .btns{justify-self:start;margin-top:8px}}
+.grp[hidden],.gtest[hidden]{display:none !important}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
 .live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
@@ -627,6 +635,22 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     </div>
   </section>
 
+  <section id="tally">
+    <h3>Pint-o-meter</h3>
+    <p class="lede">Your own count is saved on your phone and nobody else can see it. The Craic Pack total is shared by all six of us, and it only goes up.</p>
+    <div class="grp" id="grp"><div><div class="gl">Craic Pack total</div><div class="gtest" id="gtest" hidden>Test mode. Resets to zero on Friday morning.</div><div class="gtest" id="goff" hidden>Can't reach the counter right now. It works on tinyurl.com/Craicpack.</div></div><div class="gnum"><span id="gn">…</span> <span class="gs">pints</span></div></div>
+    <div class="tally">
+      <div>
+        <div class="yl">Yours</div><div class="n" id="n">0</div>
+        <div class="verdict" id="verdict">Stone cold sober. Suspicious.</div>
+      </div>
+      <div class="btns">
+        <button class="undo" id="undo" aria-label="Remove one pint">Undo</button>
+        <button class="add" id="add">Add a pint</button>
+      </div>
+    </div>
+  </section>
+
   <section id="crew">
     <h3>The Crew</h3>
     <p class="lede">Three couples, one group chat, zero chance of a quiet night in. Tap a photo for their stats.</p>
@@ -841,21 +865,6 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     </ol>
   </section>
 
-  <section id="tally">
-    <h3>Pint-o-meter</h3>
-    <p class="lede">Your own count is saved on your phone and nobody else can see it. The Craic Pack total is shared by all six of us, and it only goes up.</p>
-    <div class="grp" id="grp" hidden><div><div class="gl">Craic Pack total</div><div class="gtest" id="gtest" hidden>Test mode. Resets to zero on Friday morning.</div></div><div class="gnum"><span id="gn">0</span> <span class="gs">pints</span></div></div>
-    <div class="tally">
-      <div>
-        <div class="yl">Yours</div><div class="n" id="n">0</div>
-        <div class="verdict" id="verdict">Stone cold sober. Suspicious.</div>
-      </div>
-      <div class="btns">
-        <button class="undo" id="undo" aria-label="Remove one pint">Undo</button>
-        <button class="add" id="add">Add a pint</button>
-      </div>
-    </div>
-  </section>
 
   <section id="splitg">
     <h3>Split the G</h3>
@@ -956,12 +965,18 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   function tick(){
     var now = Date.now(), ms = dep - now;
     var cd = document.getElementById('cd'), txt = document.getElementById('cdtxt');
-    if (ms <= 0){
+    var land = new Date('2026-10-23T10:15:00+01:00').getTime();
+    if (ms <= 0 && now < land){
+      cd.textContent = 'Wheels up!';
+      txt.textContent = 'In the air. Landing in Dublin at 10:15.';
+    } else if (ms <= 0){
       cd.textContent = 'Sláinte!';
-      txt.textContent = now < dep + 3*86400000 ? "We're in Dublin. Put the phone down and get a round in." : 'That was gas. Same again next year?';
+      txt.textContent = now < new Date('2026-10-25T15:35:00+00:00').getTime() ? "We're in Dublin. Put the phone down and get a round in." : 'That was gas. Same again next year?';
     } else {
-      var d = Math.floor(ms/86400000), h = Math.floor(ms%86400000/3600000);
-      cd.textContent = d > 0 ? d + (d===1?' day':' days') + ', ' + h + 'h' : h + (h===1?' hour':' hours') + ' to go';
+      var d = Math.floor(ms/86400000), h = Math.floor(ms%86400000/3600000), m = Math.max(1, Math.ceil(ms%3600000/60000));
+      cd.textContent = d > 0 ? d + (d===1?' day':' days') + ', ' + h + 'h'
+        : h > 0 ? h + 'h ' + m + 'm to go'
+        : m + (m===1?' minute':' minutes') + ' to go';
     }
     var f = Math.max(0, Math.min(1, (now - start)/(dep - start)));
     var top = 146, full = 136*f, headH = f > 0.02 ? Math.min(14, full) : 0;
@@ -981,7 +996,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     [5,  'Fluent in Irish, apparently.'],
     [8,  'Challenging locals to a jig.'],
     [11, 'Legend. Hydrate, please.'],
-    [15, 'Someone take this phone away.']
+    [15, 'Right. Hand over the phone.']
   ];
   function render(){
     document.getElementById('n').textContent = n;
@@ -995,11 +1010,12 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     var NS='craicpack-dublin-2026', LIVE=new Date('2026-10-23T06:00:00+01:00').getTime();
     var test=Date.now()<LIVE, KEYN=test?'pints-test':'pints', BASE='https://abacus.jasoncameron.dev/';
     var box=document.getElementById('grp'), num=document.getElementById('gn'), val=null;
-    function show(v,bump){ if(typeof v!=='number'||isNaN(v))return; val=v; num.textContent=v; box.hidden=false; document.getElementById('gtest').hidden=!test;
+    function off(){ if(val!==null)return; num.textContent='–'; document.getElementById('goff').hidden=false; document.getElementById('gtest').hidden=true; }
+    function show(v,bump){ if(typeof v!=='number'||isNaN(v))return; val=v; num.textContent=v; box.hidden=false; document.getElementById('goff').hidden=true; document.getElementById('gtest').hidden=!test;
       if(bump){box.classList.remove('bump');void box.offsetWidth;box.classList.add('bump');} }
-    function call(op){ return fetch(BASE+op+'/'+NS+'/'+KEYN,{cache:'no-store'}).then(function(r){ if(r.status===404) return {value:0}; if(!r.ok) throw 0; return r.json(); }); }
-    function refresh(){ call('get').then(function(d){ show(d.value); }).catch(function(){}); }
-    function hit(){ if(val!==null) show(val+1,true); call('hit').then(function(d){ show(d.value,false); }).catch(function(){}); }
+    function call(op){ return fetch(BASE+op+'/'+NS+'/'+KEYN,{cache:'no-store'}).then(function(r){ if(r.status===404&&op==='get') return {value:0}; if(!r.ok) throw 0; return r.json(); }); }
+    function refresh(){ call('get').then(function(d){ show(d.value); }).catch(off); }
+    function hit(){ if(val!==null) show(val+1,true); call('hit').then(function(d){ show(d.value,false); }).catch(off); }
     refresh(); setInterval(function(){ if(!document.hidden) refresh(); },30000);
     document.addEventListener('visibilitychange',function(){ if(!document.hidden) refresh(); });
     return {hit:hit};
