@@ -378,6 +378,17 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   #beer{transition:y 1.4s ease-out,height 1.4s ease-out}
 }
 </style>
+<script>
+  // Always open at the top (stop the browser restoring an old scroll position)
+  try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+  (function(){
+    function toTop(){if(!location.hash)window.scrollTo(0,0);}
+    toTop();
+    document.addEventListener('DOMContentLoaded',toTop);
+    window.addEventListener('load',function(){toTop();setTimeout(toTop,50);});
+    window.addEventListener('pageshow',function(e){if(e.persisted)toTop();});
+  })();
+</script>
 </head>
 <body>
 <div id="intro" aria-hidden="true">
@@ -849,7 +860,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       if(sim===null && now<LIVE_FROM){
         pill.className='pill';pill.textContent='From Fri 23rd';
         h='<p class="msg">This goes live on the Friday morning. It\'ll show what\'s on now, what\'s next, how long until it starts, and one-tap directions.</p>'+
-          '<div class="acts"><button type="button" class="ghost" data-sim="2026-10-24T11:20:00+01:00">Preview Saturday</button><button type="button" class="ghost" data-sim="2026-10-23T19:25:00+01:00">Preview Friday night</button></div>';
+          '<div class="acts"><button type="button" class="ghost" data-sim="2026-10-23T19:25:00+01:00">Preview Friday night</button><button type="button" class="ghost" data-sim="2026-10-24T11:20:00+01:00">Preview Saturday</button></div>';
         body.innerHTML=h;mark(null);return;
       }
       if(now>=LIVE_TO){
