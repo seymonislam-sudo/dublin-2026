@@ -218,6 +218,16 @@ dialog.morning{width:min(94vw,460px)}
 #tally .tally .btns{grid-area:btns;justify-self:end;align-self:center}
 @media (max-width:359px){#tally .tally{grid-template-areas:"yl yl" "num num" "ver ver" "btns btns"}#tally .tally .btns{justify-self:start;margin-top:8px}}
 .grp[hidden],.gtest[hidden]{display:none !important}
+
+/* ---------- Shortcut bar ---------- */
+.jump{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);transition:box-shadow .2s}
+.jump.stuck{box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.jumprow{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;max-width:760px;margin:0 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.jumprow::-webkit-scrollbar{display:none}
+.jump button{font:inherit;cursor:pointer;flex:none;display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:14.5px;color:var(--ink);text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 13px;white-space:nowrap}
+.jump button span{font-size:15px;line-height:1}
+.jump button.on{background:var(--green);color:#F2E7CD;border-color:var(--green)}
+main section[id]{scroll-margin-top:64px}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
 .live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
@@ -580,6 +590,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     <div class="dates">Dublin, Fri 23 – Sun 25 October</div>
   </div>
 </header>
+<nav class="jump" id="jump" aria-label="Jump to section"><div class="jumprow"><button type="button" data-j="live"><span aria-hidden="true">⏱️</span>Now & Next</button><button type="button" data-j="tally"><span aria-hidden="true">🍺</span>Pints</button><button type="button" data-j="plan"><span aria-hidden="true">📅</span>Plan</button><button type="button" data-j="map"><span aria-hidden="true">🗺️</span>Map</button><button type="button" data-j="crew"><span aria-hidden="true">👥</span>Crew</button><button type="button" data-j="cheers"><span aria-hidden="true">🥂</span>Toast</button><button type="button" data-j="splitg"><span aria-hidden="true">☘️</span>Split the G</button><button type="button" data-j="essentials"><span aria-hidden="true">🧳</span>Essentials</button></div></nav>
 
 <main class="wrap">
 
@@ -764,7 +775,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       </div>
       <div class="stop"><div class="time">Morning</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16M8 3c-1 1.5 1 2.5 0 4M12 3c-1 1.5 1 2.5 0 4M3 22h14"/></g></svg><strong>Breakfast at The Morgan</strong><p>All six of us, strong coffee, full Irish.</p></div></div>
       <div class="stop"><div class="time">12:00</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6.5v7M9.5 7.5v6M14.5 7.5v6M12 13.5l-3 8M12 13.5l3.5 3.5 3.5-1.5"/></g></svg><strong>Irish dancing lesson</strong><span class="badge ok">Booked</span><p>Merchant's Arch, 5 minutes from the hotel. Two hours. Arms straight, dignity optional.</p></div></div>
-      <div class="stop"><div class="time">Afternoon</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c4-7 16-7 20 0M2 16h20M6.5 12.6V16M10 11.2V16M14 11.2V16M17.5 12.6V16M3 20.5q2-1.5 4 0t4 0 4 0 4 0"/></g></svg><strong>Wander</strong><p>Ha'penny Bridge, along the Liffey, a pub with the sport on. Grab lunch at the Temple Bar Food Market if hungry. Jeff's buying the Jamesons.</p></div></div>
+      <div class="stop"><div class="time">14:00</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l3.8 2.8-1.5 4.4H9.7L8.2 10.3z"/><path d="M12 7.5V3.2M15.8 10.3l4.1-1.3M14.3 14.7l2.6 3.6M9.7 14.7l-2.6 3.6M8.2 10.3L4.1 9"/></g></svg><strong>Split shift: shopping and the Arsenal</strong><p><b>Girls:</b> Grafton Street, the Powerscourt Centre and George's Street Arcade, all within 10 minutes of the dancing.</p><p><b>Boys:</b> Arsenal v Everton, <b>15:00 kick-off</b>, at Sinnott's on South King St (14 screens, food on, about 10 minutes' walk). Get there by half two for a table.</p><p><b>Around 17:00:</b> back together. Sinnott's is at the top of Grafton Street, so the girls can collect the boys (and gloat about the bags). Then back to the hotel to change for The Church.</p></div></div>
       <div class="stop"><div class="time">19:30</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M10 4h4M5 11l7-5 7 5M6 10v11h12V10M10 21v-4a2 2 0 0 1 4 0v4"/></g></svg><strong>Dinner at The Church</strong><span class="badge ok">Booked</span><p>Mary St, about 12 minutes' walk over the river. A converted church with trad music and dancing in the evenings. Perfect after the lesson.</p></div></div>
       <div class="stop"><div class="time">22:00</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.5s-8-4.8-8-11A4.5 4.5 0 0 1 12 6.6 4.5 4.5 0 0 1 20 9.5c0 6.2-8 11-8 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><button type="button" class="fitzbtn" data-love="1"><strong>Fitzsimons</strong> <span aria-hidden="true">♥</span></button><p>Over the Ha'penny Bridge from The Church, about 8 minutes' walk. It's where Seymon and Louise met, so the first round is a toast to them. Live music most nights. The clocks go back tonight, so that's a bonus hour. Home is 6 minutes along the quay.</p></div></div>
     </div>
@@ -1008,7 +1019,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   // Shared group total via Abacus (works on the GitHub site; hidden if unreachable)
   var G=(function(){
     var NS='craicpack-dublin-2026', LIVE=new Date('2026-10-23T06:00:00+01:00').getTime();
-    var test=Date.now()<LIVE, KEYN=test?'pints-test':'pints', BASE='https://abacus.jasoncameron.dev/';
+    var test=Date.now()<LIVE, KEYN=test?'pints-test-2':'pints', BASE='https://abacus.jasoncameron.dev/';
     var box=document.getElementById('grp'), num=document.getElementById('gn'), val=null;
     function off(){ if(val!==null)return; num.textContent='–'; document.getElementById('goff').hidden=false; document.getElementById('gtest').hidden=true; }
     function show(v,bump){ if(typeof v!=='number'||isNaN(v))return; val=v; num.textContent=v; box.hidden=false; document.getElementById('goff').hidden=true; document.getElementById('gtest').hidden=!test;
@@ -1048,7 +1059,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       ['2026-10-23T22:30:00+01:00','See how we feel','The Palace Bar is next door to the hotel.','fri',5,['The Palace Bar, 21 Fleet Street, Dublin','walking']],
       ['2026-10-24T08:30:00+01:00','Breakfast at The Morgan','Strong coffee, full Irish.','sat',0,null],
       ['2026-10-24T12:00:00+01:00','Irish dancing lesson','Merchant\'s Arch, 5 minutes from the hotel. Arms straight.','sat',1,['Merchant\'s Arch, Wellington Quay, Dublin','walking']],
-      ['2026-10-24T14:00:00+01:00','Wander','Ha\'penny Bridge, the Liffey, a pub with the sport on.','sat',2,['Ha\'penny Bridge, Dublin','walking']],
+      ['2026-10-24T14:00:00+01:00','Split shift','Girls: Grafton Street and Powerscourt. Boys: Sinnott\'s for the Arsenal.','sat',2,['Grafton Street, Dublin','walking']],['2026-10-24T15:00:00+01:00','Kick-off: Arsenal v Everton','Sinnott\'s, South King St. Girls still shopping.','sat',2,['Sinnott\'s Bar, South King Street, Dublin','walking']],['2026-10-24T17:00:00+01:00','Back together','Meet at Sinnott\'s, top of Grafton St, then the hotel to change.','sat',2,['Sinnott\'s Bar, South King Street, Dublin','walking']],
       ['2026-10-24T19:30:00+01:00','Dinner at The Church','Mary St, about 12 minutes\' walk over the river. Trad music and dancing later.','sat',3,['The Church, Mary Street, Dublin','walking']],
       ['2026-10-24T22:00:00+01:00','Fitzsimons: where it all began','Over the Ha\'penny Bridge, about 8 minutes from The Church. First round: a toast to Seymon and Louise.','sat',4,['Fitzsimons, 21 Wellington Quay, Dublin','walking']],
       ['2026-10-25T09:00:00+00:00','Breakfast, slowly','Coffee and quiet reflection.','sun',0,null],
@@ -1352,6 +1363,25 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     document.getElementById('morningx').addEventListener('click',close);
     dlg.addEventListener('click',function(e){if(e.target===dlg)close();});
     document.querySelectorAll('[data-morning]').forEach(function(el){el.addEventListener('click',open);});
+  })();
+
+  // ---------- Shortcut bar ----------
+  (function(){
+    var bar=document.getElementById('jump'); if(!bar)return;
+    var links=[].slice.call(bar.querySelectorAll('button[data-j]'));
+    links.forEach(function(a){a.addEventListener('click',function(e){
+      var t=document.getElementById(a.dataset.j); if(!t)return; e.preventDefault();
+      var y=t.getBoundingClientRect().top+window.scrollY-bar.offsetHeight-8;
+      window.scrollTo({top:y,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+    });});
+    function setOn(id){links.forEach(function(a){var on=a.dataset.j===id;a.classList.toggle('on',on);if(on){var r=a.getBoundingClientRect(),rr=a.parentNode.getBoundingClientRect();if(r.left<rr.left||r.right>rr.right)a.parentNode.scrollBy({left:r.left-rr.left-40,behavior:'smooth'});}});}
+    function onScroll(){
+      bar.classList.toggle('stuck',bar.getBoundingClientRect().top<=0&&window.scrollY>0);
+      var line=bar.offsetHeight+80, cur=null;
+      links.forEach(function(a){var t=document.getElementById(a.dataset.j);if(t&&t.getBoundingClientRect().top<=line)cur=cur&&document.getElementById(cur).getBoundingClientRect().top>t.getBoundingClientRect().top?cur:a.dataset.j;});
+      if(cur!==onScroll.last){onScroll.last=cur;setOn(cur);}
+    }
+    window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
   })();
   // Photo lightbox
   var lb=document.getElementById('lb');
