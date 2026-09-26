@@ -100,6 +100,25 @@ a{color:inherit}
 .walk .wk{width:14px;height:14px}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .walk{color:var(--gold-lit);background:rgba(214,174,85,.12)}}
 :root[data-theme="dark"] .walk{color:var(--gold-lit);background:rgba(214,174,85,.12)}
+
+/* ---------- Slainte ---------- */
+#cheers{padding-top:18px}
+.cheers{background:radial-gradient(ellipse at 50% 20%,rgba(214,174,85,.22),transparent 70%),var(--green);border-radius:16px;padding:12px 12px 14px;box-shadow:inset 0 -3px 0 #0B2A1D;text-align:center}
+#csvg{display:block;width:100%;height:auto;max-width:520px;margin:0 auto;overflow:visible}
+.cbtn{font:inherit;font-weight:800;font-size:16px;background:var(--gold-lit);color:#1E1812;border:0;border-radius:999px;padding:10px 22px;cursor:pointer;margin-top:4px}
+.cbtn:disabled{opacity:.6;cursor:default}
+
+/* ---------- Leprechaun ---------- */
+.lep{position:fixed;left:0;bottom:calc(env(safe-area-inset-bottom,0px) + 6px);width:70px;height:88px;z-index:60;pointer-events:auto;cursor:pointer;transform:translateX(-90px)}
+.lep svg{width:100%;height:100%;overflow:visible}
+.lep .run{animation:lephop .28s ease-in-out infinite}
+.lep .lg1{transform-origin:30px 62px;animation:leplegA .28s ease-in-out infinite}
+.lep .lg2{transform-origin:40px 62px;animation:leplegB .28s ease-in-out infinite}
+@keyframes lephop{50%{transform:translateY(-5px)}}
+@keyframes leplegA{0%,100%{transform:rotate(28deg)}50%{transform:rotate(-28deg)}}
+@keyframes leplegB{0%,100%{transform:rotate(-28deg)}50%{transform:rotate(28deg)}}
+.lep .say{position:absolute;bottom:92px;left:50%;transform:translateX(-50%);background:#fff;color:#1E1812;font-family:'Alegreya',Georgia,serif;font-weight:800;font-size:13px;padding:3px 9px;border-radius:10px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.25);opacity:0;transition:opacity .2s}
+.lep.talk .say{opacity:1}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
 .live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
@@ -486,6 +505,17 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     </div>
   </div>
 
+  <section id="cheers" aria-label="Raise a glass">
+    <div class="cheers">
+      <svg id="csvg" viewBox="0 0 360 156" aria-hidden="true">
+        <g id="cfx"></g>
+        <g id="cpints"><g class="cpint" data-x="35"><g class="cpin"><path d="M-17 -44 H17 L13 30 Q12 34 8 34 H-8 Q-12 34 -13 30 Z" fill="#241710" stroke="rgba(242,231,205,.55)" stroke-width="1.6"/><path d="M-17 -44 H17 L16.3 -32 H-16.3 Z" fill="#F2E7CD"/><g transform="translate(0,2)"><g transform="scale(11)" clip-path="url(#fclip)"><use href="#f-Seymon"/></g><circle r="11" fill="none" stroke="#D6AE55" stroke-width="1.6"/></g></g></g><g class="cpint" data-x="93"><g class="cpin"><path d="M-17 -44 H17 L13 30 Q12 34 8 34 H-8 Q-12 34 -13 30 Z" fill="#241710" stroke="rgba(242,231,205,.55)" stroke-width="1.6"/><path d="M-17 -44 H17 L16.3 -32 H-16.3 Z" fill="#F2E7CD"/><g transform="translate(0,2)"><g transform="scale(11)" clip-path="url(#fclip)"><use href="#f-Louise"/></g><circle r="11" fill="none" stroke="#D6AE55" stroke-width="1.6"/></g></g></g><g class="cpint" data-x="151"><g class="cpin"><path d="M-17 -44 H17 L13 30 Q12 34 8 34 H-8 Q-12 34 -13 30 Z" fill="#241710" stroke="rgba(242,231,205,.55)" stroke-width="1.6"/><path d="M-17 -44 H17 L16.3 -32 H-16.3 Z" fill="#F2E7CD"/><g transform="translate(0,2)"><g transform="scale(11)" clip-path="url(#fclip)"><use href="#f-Jeff"/></g><circle r="11" fill="none" stroke="#D6AE55" stroke-width="1.6"/></g></g></g><g class="cpint" data-x="209"><g class="cpin"><path d="M-17 -44 H17 L13 30 Q12 34 8 34 H-8 Q-12 34 -13 30 Z" fill="#241710" stroke="rgba(242,231,205,.55)" stroke-width="1.6"/><path d="M-17 -44 H17 L16.3 -32 H-16.3 Z" fill="#F2E7CD"/><g transform="translate(0,2)"><g transform="scale(11)" clip-path="url(#fclip)"><use href="#f-Helen"/></g><circle r="11" fill="none" stroke="#D6AE55" stroke-width="1.6"/></g></g></g><g class="cpint" data-x="267"><g class="cpin"><path d="M-17 -44 H17 L13 30 Q12 34 8 34 H-8 Q-12 34 -13 30 Z" fill="#241710" stroke="rgba(242,231,205,.55)" stroke-width="1.6"/><path d="M-17 -44 H17 L16.3 -32 H-16.3 Z" fill="#F2E7CD"/><g transform="translate(0,2)"><g transform="scale(11)" clip-path="url(#fclip)"><use href="#f-Steve"/></g><circle r="11" fill="none" stroke="#D6AE55" stroke-width="1.6"/></g></g></g><g class="cpint" data-x="325"><g class="cpin"><path d="M-17 -44 H17 L13 30 Q12 34 8 34 H-8 Q-12 34 -13 30 Z" fill="#241710" stroke="rgba(242,231,205,.55)" stroke-width="1.6"/><path d="M-17 -44 H17 L16.3 -32 H-16.3 Z" fill="#F2E7CD"/><g transform="translate(0,2)"><g transform="scale(11)" clip-path="url(#fclip)"><use href="#f-Vicky"/></g><circle r="11" fill="none" stroke="#D6AE55" stroke-width="1.6"/></g></g></g></g>
+        <text id="ctext" x="180" y="30" text-anchor="middle" font-family="'Uncial Antiqua','Alegreya',Georgia,serif" font-size="34" fill="#D6AE55" opacity="0">Sláinte!</text>
+      </svg>
+      <button type="button" class="cbtn" id="cbtn">Raise a glass</button>
+    </div>
+  </section>
+
   <section id="live" aria-labelledby="livettl">
     <div class="live">
       <div class="top"><h3 class="ttl" id="livettl" style="margin:0;font-size:24px;color:var(--gold-lit)">Now &amp; Next</h3><span class="pill" id="lvpill">Friday</span></div>
@@ -643,7 +673,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   <section id="map">
     <h3>The Map</h3>
     <p class="lede">The plan in green, ideas in orange if we get thirsty. Everything is walkable from the hotel. Times are rough walking minutes from The Morgan at sober pace, so add a few after pints.</p>
-    <div class="routebtns"><button type="button" data-r="fri">⛵ Play Friday</button><button type="button" data-r="sat">☘ Play Saturday</button></div>
+    <div class="routebtns"><button type="button" data-r="fri">🚶 Walk Friday</button><button type="button" data-r="sat">🚶 Walk Saturday</button></div>
     <div class="mapbox"><svg id="dmap" viewBox="0 0 620 540" role="img" aria-label="Map of central Dublin with our stops numbered">
 <rect width="620" height="540" rx="14" fill="var(--panel)"/>
 <rect x="324.2" y="311.5" width="115.10000000000002" height="86.10000000000002" rx="8" fill="#2E7355" opacity=".35"/>
@@ -1000,6 +1030,75 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go(e);}});
     });
   })();
+
+  // ---------- Slainte ----------
+  (function(){
+    var btn=document.getElementById('cbtn'); if(!btn)return;
+    var NS='http://www.w3.org/2000/svg', svg=document.getElementById('csvg'), fx=document.getElementById('cfx'), txt=document.getElementById('ctext');
+    var ps=[].slice.call(document.querySelectorAll('.cpint')), BASE=110, busy=false;
+    var red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function place(g,x,y,r){g.setAttribute('transform','translate('+x.toFixed(1)+','+y.toFixed(1)+') rotate('+r.toFixed(1)+',0,34)');}
+    ps.forEach(function(g){place(g,+g.dataset.x,BASE,0);});
+    function ease(k){return k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;}
+    function burst(){
+      for(var i=0;i<26;i++){
+        var shamrock=i%3===0, el=document.createElementNS(NS,shamrock?'text':'circle');
+        if(shamrock){el.textContent='☘';el.setAttribute('font-size',10+Math.random()*8);el.setAttribute('fill',['#3FA564','#D6AE55'][i%2]);el.setAttribute('text-anchor','middle');}
+        else{el.setAttribute('r',2+Math.random()*3.5);el.setAttribute('fill','#F2E7CD');}
+        el._vx=(Math.random()-.5)*5; el._vy=-2.5-Math.random()*4; el._x=180+(Math.random()-.5)*60; el._y=52; fx.appendChild(el);
+      }
+      var t0=null;
+      (function f(t){if(!t0)t0=t;var k=(t-t0)/1400;[].slice.call(fx.childNodes).forEach(function(el){el._x+=el._vx;el._y+=el._vy;el._vy+=.18;
+        if(el.tagName==='circle'){el.setAttribute('cx',el._x);el.setAttribute('cy',el._y);}else{el.setAttribute('x',el._x);el.setAttribute('y',el._y);}el.setAttribute('opacity',Math.max(0,1-k));});
+        if(k<1)requestAnimationFrame(f);else fx.innerHTML='';})(performance.now());
+    }
+    btn.addEventListener('click',function(){
+      if(busy)return; busy=true; btn.disabled=true;
+      if(red){txt.setAttribute('opacity','1');setTimeout(function(){txt.setAttribute('opacity','0');busy=false;btn.disabled=false;},1600);return;}
+      var tgt=ps.map(function(g,i){return {x0:+g.dataset.x,x1:180+(i-2.5)*44,r1:-(i-2.5)*9.6};});
+      var T1=650,T2=1500,T3=2150,t0=null,clinked=false;
+      function step(t){
+        if(!t0)t0=t;var e=t-t0;
+        ps.forEach(function(g,i){var a=tgt[i],x,y,r;
+          if(e<T1){var k=ease(e/T1);x=a.x0+(a.x1-a.x0)*k;y=BASE-20*k;r=a.r1*k;}
+          else if(e<T2){var sh=Math.sin((e-T1)/40)*Math.max(0,1-(e-T1)/260)*3;x=a.x1+sh;y=BASE-20;r=a.r1;}
+          else{var k2=ease(Math.min(1,(e-T2)/(T3-T2)));x=a.x1+(a.x0-a.x1)*k2;y=BASE-20+20*k2;r=a.r1*(1-k2);}
+          place(g,x,y,r);});
+        if(e>=T1&&!clinked){clinked=true;burst();txt.setAttribute('opacity','1');try{navigator.vibrate&&navigator.vibrate(30);}catch(x){}}
+        if(e>T2)txt.setAttribute('opacity',Math.max(0,1-(e-T2)/400).toFixed(2));
+        if(e<T3)requestAnimationFrame(step);else{busy=false;btn.disabled=false;txt.setAttribute('opacity','0');}
+      }
+      requestAnimationFrame(step);
+    });
+  })();
+
+  // ---------- Leprechaun cameo ----------
+  (function(){
+    if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var el=document.createElement('div'); el.className='lep'; el.setAttribute('aria-hidden','true');
+    el.innerHTML='<span class="say">Oi! Me pint!</span><svg viewBox="0 0 70 88"><g class="run">'+
+      '<g class="lg1"><rect x="27" y="60" width="7" height="20" rx="3" fill="#14432F"/><ellipse cx="32" cy="81" rx="7" ry="3.5" fill="#1E1812"/></g>'+
+      '<g class="lg2"><rect x="37" y="60" width="7" height="20" rx="3" fill="#1E5C43"/><ellipse cx="42" cy="81" rx="7" ry="3.5" fill="#1E1812"/></g>'+
+      '<path d="M22 38 Q35 32 48 38 L50 64 H20 Z" fill="#2E9A5E" stroke="#0B2A1D" stroke-width="1.2"/><rect x="20" y="56" width="30" height="5" fill="#1E1812"/><rect x="32" y="55" width="6" height="7" fill="none" stroke="#D6AE55" stroke-width="1.6"/>'+
+      '<circle cx="35" cy="26" r="11" fill="#F0C39E"/><path d="M24 27 Q35 50 46 27 Q41 34 35 34 Q29 34 24 27Z" fill="#D2691E"/>'+
+      '<circle cx="31" cy="24" r="1.4" fill="#1E1812"/><circle cx="39" cy="24" r="1.4" fill="#1E1812"/><path d="M31 30 Q35 33 39 30" stroke="#8B3A1A" stroke-width="1.4" fill="none"/>'+
+      '<rect x="20" y="14" width="30" height="4" rx="2" fill="#14432F"/><path d="M25 14 L27 0 H43 L45 14 Z" fill="#1E5C43" stroke="#0B2A1D" stroke-width="1"/><rect x="26" y="9" width="18" height="3.5" fill="#1E1812"/><rect x="32" y="8.5" width="6" height="4.5" fill="none" stroke="#D6AE55" stroke-width="1.2"/>'+
+      '<g transform="translate(54,40) rotate(10)"><path d="M-5 -8 H5 L4 9 H-4 Z" fill="#241710" stroke="#F2E7CD" stroke-width=".8"/><rect x="-5" y="-8" width="10" height="3" fill="#F2E7CD"/></g><path d="M47 42 L52 40" stroke="#2E9A5E" stroke-width="5" stroke-linecap="round"/>'+
+      '</g></svg>';
+    document.body.appendChild(el);
+    var shown=0, last=0, scrolled=0, lastY=window.scrollY, running=false;
+    function run(){
+      if(running)return; running=true; shown++; last=Date.now();
+      var w=window.innerWidth, t0=null, D=3600;
+      (function f(t){if(!t0)t0=t;var k=(t-t0)/D;el.style.transform='translateX('+(-90+(w+180)*k).toFixed(0)+'px)';if(k<1)requestAnimationFrame(f);else{running=false;el.classList.remove('talk');el.style.transform='translateX(-90px)';}})(performance.now());
+    }
+    el.addEventListener('click',function(){el.classList.add('talk');setTimeout(function(){el.classList.remove('talk');},1400);});
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY; scrolled+=Math.abs(y-lastY); lastY=y;
+      if(shown<2 && scrolled>2500 && performance.now()>20000 && Date.now()-last>90000 && Math.random()<.02){scrolled=0;run();}
+    },{passive:true});
+    if(/[?&#]lep/.test(location.search+location.hash))setTimeout(run,1500);
+  })();
   // Photo lightbox
   var lb=document.getElementById('lb');
   document.querySelectorAll('.zoom, .pic-group').forEach(function(b){
@@ -1058,19 +1157,41 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       path.setAttribute('stroke-linecap','round'); path.setAttribute('stroke-linejoin','round'); path.setAttribute('opacity','.85');
       layer.appendChild(path);
       var L=path.getTotalLength(); path.style.strokeDasharray=L; path.style.strokeDashoffset=L;
-      mover.innerHTML = key==='fri'
-        ? '<g transform="translate(-22,-26)"><path d="M2 26 Q22 40 42 26 Z" fill="#7A4A22" stroke="#1E1812" stroke-width="1.5"/><path d="M0 20 Q-4 12 3 12 Q4 20 6 24Z" fill="#7A4A22"/><rect x="20" y="4" width="2" height="22" fill="#1E1812"/><path d="M8 6 H34 V22 H8 Z" fill="#F2E7CD" stroke="#1E1812" stroke-width="1"/><path d="M8 10 H34 M8 15 H34" stroke="#B3322B" stroke-width="3"/></g>'
-        : '<g transform="scale(1.1)"><g fill="#2E9A5E" stroke="#0B2A1D" stroke-width="1.2"><circle cx="-6" cy="-5" r="7"/><circle cx="6" cy="-5" r="7"/><circle cx="0" cy="-14" r="7"/></g><path d="M0 -4 Q3 6 1 14" stroke="#2E9A5E" stroke-width="3" fill="none"/></g>';
-      if(reduce){ path.style.strokeDashoffset=0; var e=seq[seq.length-1]; mover.setAttribute('transform','translate('+e[0]+','+e[1]+')'); return; }
-      var dur=Math.min(9000, 1400+L*6), t0=null;
+      var NAMES=['Seymon','Louise','Jeff','Helen','Steve','Vicky'];
+      var PUBS={fri:{9:1,2:1},sat:{3:1,4:1}}[key];
+      var heads=NAMES.map(function(n){
+        var g=document.createElementNS(NS,'g');
+        g.innerHTML='<g class="wobble"><g transform="scale(13)" clip-path="url(#fclip)"><use href="#f-'+n+'"/></g><circle r="13" fill="none" stroke="#D6AE55" stroke-width="2"/><g class="mpint" opacity="0" transform="translate(9,4)"><path d="M-3.5 -5 H3.5 L2.6 6 H-2.6 Z" fill="#241710" stroke="#F2E7CD" stroke-width=".8"/><rect x="-3.4" y="-5" width="6.8" height="2.2" fill="#F2E7CD"/></g></g>';
+        mover.appendChild(g); return g;
+      });
+      mover.insertBefore(heads[0],null);
+      // segment lengths along the drawn path
+      var segs=[],acc=0,tmp=document.createElementNS(NS,'path');
+      for(var q=1;q<seq.length;q++){tmp.setAttribute('d','M'+seq[0][0]+','+seq[0][1]+' L'+seq.slice(1,q+1).map(function(p){return p[0]+','+p[1];}).join(' L'));layer.appendChild(tmp);segs.push(tmp.getTotalLength());layer.removeChild(tmp);}
+      var GAP=30, SPEED=.16, PAUSE=750;
+      var plan=[],tt=0,prev=0;
+      segs.forEach(function(end,k){var w=(end-prev)/SPEED;plan.push({t0:tt,t1:tt+w,s0:prev,s1:end,stop:routes[key][k+1]});tt+=w+PAUSE;prev=end;});
+      var total=tt+(heads.length-1)*GAP/SPEED;
+      function placeAll(sLead,t,drunk){
+        heads.forEach(function(g,i){
+          var sv=Math.max(0,Math.min(L,sLead-i*GAP)), at=path.getPointAtLength(sv);
+          var amp=1.5+drunk*1.8, sway=Math.sin(t/260+i*1.3)*(3+drunk*6);
+          g.setAttribute('transform','translate('+at.x.toFixed(1)+','+(at.y-18+Math.sin(t/110+i)*amp).toFixed(1)+') rotate('+sway.toFixed(1)+')');
+          g.querySelector('.mpint').setAttribute('opacity',drunk>0?'1':'0');
+        });
+      }
+      if(reduce){ path.style.strokeDashoffset=0; placeAll(L+99,0,0); return; }
+      var t0=null;
       function step(t){
-        if(!t0) t0=t; var k=Math.min(1,(t-t0)/dur);
-        var e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
-        var at=path.getPointAtLength(L*e);
-        path.style.strokeDashoffset=L*(1-e);
-        var bob=key==='fri'?Math.sin(t/140)*2.5:0, rot=key==='sat'?(t/6)%360:Math.sin(t/200)*6;
-        mover.setAttribute('transform','translate('+at.x+','+(at.y+bob)+') rotate('+rot+')');
-        if(k<1) raf=requestAnimationFrame(step);
+        if(!t0) t0=t; var el=t-t0, sLead=0, drunk=0;
+        for(var k=0;k<plan.length;k++){var p=plan[k];
+          if(el>=p.t1){sLead=p.s1; if(PUBS[p.stop])drunk++;}
+          else if(el>=p.t0){sLead=p.s0+(p.s1-p.s0)*(el-p.t0)/(p.t1-p.t0);break;}
+          else break;}
+        if(el>=tt-PAUSE) sLead=L+(el-(tt-PAUSE))*SPEED;
+        path.style.strokeDashoffset=Math.max(0,L-sLead);
+        placeAll(sLead,t,drunk);
+        if(el<total+400) raf=requestAnimationFrame(step);
       }
       raf=requestAnimationFrame(step);
     }
