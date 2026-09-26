@@ -275,8 +275,12 @@ main section[id]{scroll-margin-top:64px}
 @media (prefers-reduced-motion: no-preference){.tod-night .skyline .stars circle:nth-child(3n){animation:twinkle 3s ease-in-out infinite}.tod-night .skyline .stars circle:nth-child(3n+1){animation:twinkle 4.5s ease-in-out -1s infinite}}
 @keyframes twinkle{50%{opacity:.25}}
 /* Home-screen app: keep top items clear of the status bar */
-header.fascia .spicy,header.fascia .lucky{top:calc(env(safe-area-inset-top,0px) + 10px)}
-header.fascia .wrap{padding-top:calc(58px + env(safe-area-inset-top,0px))}
+header.fascia .spicy,header.fascia .lucky{top:10px}
+header.fascia .wrap{padding-top:58px}
+@supports (padding-top: env(safe-area-inset-top)){
+  header.fascia .spicy,header.fascia .lucky{top:max(10px, calc(env(safe-area-inset-top) - 4px))}
+  header.fascia .wrap{padding-top:max(58px, calc(env(safe-area-inset-top) + 40px))}
+}
 html{background:#14432F}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
