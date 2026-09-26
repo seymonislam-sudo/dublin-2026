@@ -183,6 +183,11 @@ dialog.morning{width:min(94vw,460px)}
 @keyframes mice{0%,100%{transform:rotate(0)}50%{transform:rotate(-7deg)}}
 @keyframes msteam{0%{opacity:0;transform:translateY(4px)}30%{opacity:1}100%{opacity:0;transform:translateY(-12px)}}
 @keyframes msun{0%,100%{opacity:.8}50%{opacity:1}}
+.card h5{display:flex;align-items:center;gap:8px}
+.card h5 .cic{width:24px;height:24px;flex:none;color:var(--green-2)}
+.card h5 .cic.sos{color:#B3322B}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .card h5 .cic:not(.sos){color:var(--gold-lit)}}
+:root[data-theme="dark"] .card h5 .cic:not(.sos){color:var(--gold-lit)}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
 .live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
@@ -762,7 +767,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     <h3>The Essentials</h3>
     <p class="lede">Screenshot this bit. Signal in pubs is terrible.</p>
     <div class="ess">
-      <div class="card wide"><h5>The only things to book</h5>
+      <div class="card wide"><h5><svg class="cic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 0 4v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-5a2 2 0 0 1 0-4V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1z" transform="translate(0,1)"/><path d="M8.5 12.5l2.3 2.3 4.7-4.8"/></g></svg>The only things to book</h5>
         <p>Everything else, we'll wing it.</p>
         <ul class="books">
           <li><div><strong>Viking Splash</strong><p>Fri 14:45</p></div><span class="done">Booked ✓</span></li>
@@ -770,22 +775,22 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
           <li><div><strong>Sophie's</strong><p>Fri dinner 20:00, table for 6</p></div><span class="done">Booked ✓</span></li>
           <li><div><strong>The Church</strong><p>Sat dinner 19:30, table for 6</p></div><span class="done">Booked ✓</span></li>
         </ul></div>
-      <div class="card"><h5>Flights</h5>
+      <div class="card"><h5><svg class="cic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g transform="translate(12 12) rotate(45) scale(.9) translate(-12 -12)"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor"/></g></svg>Flights</h5>
         <p><b>Out:</b> Fri 23 Oct, <b>BA5953</b>. Heathrow T2 08:50, lands Dublin T2 10:15.</p>
         <p><b>Back:</b> Sun 25 Oct, <b>BA5968</b>. Dublin T2 14:15, lands Heathrow T2 15:35.</p>
         <p>Operated by Aer Lingus, so check in with Aer Lingus, not BA.</p>
         <p><b>Jeff and Helen</b> fly out Thursday on separate flights, so they'll meet us in Dublin.</p></div>
-      <div class="card"><h5>The Morgan Hotel</h5>
+      <div class="card"><h5><svg class="cic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11" r="2"/></g></svg>The Morgan Hotel</h5>
         <p>10 Fleet St, Temple Bar, Dublin 2, D02 AT86<br><a href="tel:+35316437000">+353 1 643 7000</a></p>
         <p>Check-in is usually from 3pm, so drop bags on arrival. Check-out Sunday 12:00.</p>
         <p><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=The%20Morgan%20Hotel%2010%20Fleet%20Street%20Dublin" target="_blank" rel="noopener">Open in Maps</a></p></div>
-      <div class="card"><h5>Airport to hotel</h5>
+      <div class="card"><h5><svg class="cic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="15" rx="2.5"/><path d="M4 11h16M8 18v2.5M16 18v2.5M8 6.5h8"/><circle cx="8" cy="14.5" r=".9" fill="currentColor"/><circle cx="16" cy="14.5" r=".9" fill="currentColor"/></g></svg>Airport to hotel</h5>
         <p>Dublin Express or Aircoach from outside arrivals into the city centre, about 30 minutes. For four of us with bags, one taxi is just as easy.</p></div>
-      <div class="card"><h5>Getting around</h5>
+      <div class="card"><h5><svg class="cic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="6" rx="1.5"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><rect x="10" y="2.5" width="4" height="2" rx=".5"/></g></svg>Getting around</h5>
         <p>Walk. For taxis, use the <b>FREENOW</b> app. It's how Dublin books cabs.</p></div>
-      <div class="card"><h5>Know before you go</h5>
+      <div class="card"><h5><svg class="cic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5a4.5 4.5 0 1 0 0 7M7 10.5h6M7 13.5h6"/></g></svg>Know before you go</h5>
         <p>Euros, but cards work everywhere. Same plugs as the UK, so no adapters. Bring photo ID for the flight; check what Aer Lingus accepts. Pack a waterproof.</p></div>
-      <div class="card"><h5>Emergencies</h5>
+      <div class="card"><h5><svg class="cic sos" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></g></svg>Emergencies</h5>
         <p><b>112</b> or <b>999</b>, both work in Ireland.</p></div>
     </div>
   </section>
