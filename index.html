@@ -147,6 +147,42 @@ dialog.love::backdrop{background:rgba(15,10,6,.85)}
 .fitzbtn{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inherit;text-align:left}
 .fitzbtn strong{text-decoration:underline;text-decoration-color:#B3322B;text-decoration-thickness:2px;text-underline-offset:4px}
 .pn.heart{cursor:pointer}
+
+/* ---------- Sunday morning-after ---------- */
+dialog.morning{width:min(94vw,460px)}
+#morningsvg{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+.morning .breathe,.morning .nod,.morning .sag,.morning .lean,.morning .sip,.morning .ice,.morning .steam,.morning .zzz{transform-box:fill-box}
+.morning .breathe{transform-origin:50% 100%}
+.morning .nod{transform-origin:50% 100%}
+.morning .sag,.morning .lean,.morning .sip{transform-origin:50% 100%}
+.morning .zzz{opacity:0}
+.brekbtn{font:inherit;background:none;border:0;padding:0;cursor:pointer;color:inherit;text-align:left}
+.brekbtn strong{text-decoration:underline;text-decoration-color:var(--gold-lit);text-decoration-thickness:2px;text-underline-offset:4px}
+@media (prefers-reduced-motion: no-preference){
+  dialog.morning[open] .breathe{animation:mbreathe 3.4s ease-in-out infinite}
+  dialog.morning[open] .hp-Louise .breathe{animation-delay:-1s}
+  dialog.morning[open] .hp-Jeff .breathe{animation-duration:4.2s}
+  dialog.morning[open] .nod{animation:mnod 4s ease-in infinite}
+  dialog.morning[open] .zzz{animation:mzzz 4s ease-in infinite}
+  dialog.morning[open] .sag{animation:msag 5s ease-in-out infinite}
+  dialog.morning[open] .lean{animation:mlean 6s ease-in-out infinite}
+  dialog.morning[open] .sip{animation:msip 3.6s ease-in-out infinite}
+  dialog.morning[open] .ice{animation:mice 2.8s ease-in-out infinite}
+  dialog.morning[open] .steam{animation:msteam 2.4s ease-out infinite}
+  dialog.morning[open] .steam.s1{animation-delay:-.8s}
+  dialog.morning[open] .steam.s2{animation-delay:-1.6s}
+  dialog.morning[open] .sunbeam{animation:msun 6s ease-in-out infinite}
+}
+@media (prefers-reduced-motion: reduce){.morning .zzz{opacity:1}}
+@keyframes mbreathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.015,1.03)}}
+@keyframes mnod{0%,15%{transform:rotate(0)}75%{transform:rotate(22deg) translateY(4px)}80%{transform:rotate(-5deg)}88%,100%{transform:rotate(0)}}
+@keyframes mzzz{0%,35%{opacity:0;transform:translateY(6px)}55%,72%{opacity:1;transform:translateY(0)}80%,100%{opacity:0;transform:translateY(-6px)}}
+@keyframes msag{0%,100%{transform:rotate(0)}50%{transform:rotate(5deg) translateY(2px)}}
+@keyframes mlean{0%,100%{transform:rotate(0)}50%{transform:rotate(-6deg) translateX(-2px)}}
+@keyframes msip{0%,100%{transform:translateY(0)}50%{transform:translateY(3px) rotate(-3deg)}}
+@keyframes mice{0%,100%{transform:rotate(0)}50%{transform:rotate(-7deg)}}
+@keyframes msteam{0%{opacity:0;transform:translateY(4px)}30%{opacity:1}100%{opacity:0;transform:translateY(-12px)}}
+@keyframes msun{0%,100%{opacity:.8}50%{opacity:1}}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
 .live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
@@ -692,7 +728,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
 </svg>
         <p class="stagecap" data-cap="Flight BA5968. Cabin crew, prepare for snoring. Tap to pause.">Flight BA5968. Cabin crew, prepare for snoring. Tap to pause.</p>
       </div>
-      <div class="stop"><div class="time">Morning</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16M8 3c-1 1.5 1 2.5 0 4M12 3c-1 1.5 1 2.5 0 4M3 22h14"/></g></svg><strong>Breakfast, slowly</strong><p>Coffee and quiet reflection.</p></div></div>
+      <div class="stop"><div class="time">Morning</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16M8 3c-1 1.5 1 2.5 0 4M12 3c-1 1.5 1 2.5 0 4M3 22h14"/></g></svg><button type="button" class="brekbtn" data-morning="1"><strong>Breakfast, slowly</strong> <span aria-hidden="true">🥴</span></button><p>Coffee and quiet reflection. Tap for a live view.</p></div></div>
       <div class="stop"><div class="time">12:00</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="6" rx="1.5"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/><rect x="10" y="2.5" width="4" height="2" rx=".5"/></g></svg><strong>Check out, head to the airport</strong><p>Taxi to Terminal 2, about 30 minutes.</p></div></div>
       <div class="stop"><div class="time">14:15</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g transform="translate(12 11) rotate(55) scale(.78) translate(-12 -12)"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" fill="currentColor"/></g><path d="M3 22h18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Fly home</strong><p>BA5968, lands Heathrow 15:35. Pretend to be fine at work on Monday.</p></div></div>
     </div>
@@ -842,6 +878,23 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     <g class="bigheart"><path d="M0 6 C-10 -1.5 -8 -10 -2.8 -9 C-1.2 -8.7 0 -7.3 0 -5.6 C0 -7.3 1.2 -8.7 2.8 -9 C8 -10 10 -1.5 0 6Z" transform="translate(150,70) scale(2.2)" fill="#E0414F"/></g>
   </svg>
   <p class="lovecap">Where it all began.<span>Fitzsimons, Temple Bar ♥</span></p>
+</dialog>
+<dialog class="love morning" id="morning" aria-label="Sunday morning">
+  <button type="button" class="lovex" id="morningx" aria-label="Close">×</button>
+  <svg viewBox="0 0 360 270" id="morningsvg" aria-hidden="true">
+    <defs><linearGradient id="mornbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9D9B5"/><stop offset="1" stop-color="#C9B28A"/></linearGradient></defs>
+    <rect width="360" height="270" rx="18" fill="url(#mornbg)"/>
+    <rect x="232" y="18" width="92" height="64" rx="4" fill="#CFE6F2" stroke="#6B4526" stroke-width="4"/><path d="M278 18 V82 M232 50 H324" stroke="#6B4526" stroke-width="3"/>
+    <circle cx="302" cy="36" r="9" fill="#FFF3B0" opacity=".9"/>
+    <g class="sunbeam"><path d="M232 82 L150 196 H300 L324 82 Z" fill="#FFF6D5" opacity=".28"/></g>
+    <text x="34" y="44" font-family="Alegreya,Georgia,serif" font-weight="800" font-size="15" fill="#6B4526">FULL IRISH</text>
+    <text x="34" y="62" font-family="Alegreya,Georgia,serif" font-style="italic" font-size="12" fill="#6B4526">served till noon</text>
+    <g class="hp hp-Seymon" transform="translate(40,0)"><g class="breathe"><g transform="translate(0,138)"><path d="M-26 60 Q-26 30 -12 28 H12 Q26 30 26 60 Z" fill="#2E7D52" stroke="#0B2A1D" stroke-width="1.2"/></g><g class="nod"><g transform="translate(0,148)"><g transform="scale(24)" clip-path="url(#fclip)"><use href="#f-Seymon"/></g><circle r="24" fill="none" stroke="#D6AE55" stroke-width="2"/></g></g><g class="zzz" font-family="Alegreya,Georgia,serif" font-weight="800" fill="#F2E7CD"><text x="16" y="114" font-size="12">z</text><text x="24" y="102" font-size="15">z</text><text x="33" y="87" font-size="18">Z</text></g></g></g><g class="hp hp-Louise" transform="translate(96,0)"><g class="breathe"><g transform="translate(0,138)"><path d="M-26 60 Q-26 30 -12 28 H12 Q26 30 26 60 Z" fill="#1E5C43" stroke="#0B2A1D" stroke-width="1.2"/></g><g class="sag"><g transform="translate(0,148) rotate(-6)"><g transform="scale(24)" clip-path="url(#fclip)"><use href="#f-Louise"/></g><circle r="24" fill="none" stroke="#D6AE55" stroke-width="2"/><g class="ice"><rect x="-17" y="-33" width="34" height="14" rx="7" fill="#8EC5E8" stroke="#3E7EA8" stroke-width="1.4"/><rect x="-3" y="-37" width="6" height="6" rx="1.5" fill="#3E7EA8"/><text x="0" y="-22.5" text-anchor="middle" font-size="7" font-weight="800" fill="#1E4F70" font-family="Alegreya Sans,sans-serif">ICE</text></g></g></g></g></g><g class="hp hp-Jeff" transform="translate(152,0)"><g class="breathe"><g transform="translate(0,136) rotate(-8)"><path d="M-26 60 Q-26 30 -12 28 H12 Q26 30 26 60 Z" fill="#8E2F2A" stroke="#0B2A1D" stroke-width="1.2"/></g><rect x="-30" y="186" width="52" height="10" rx="5" fill="#E8B894" stroke="#9C6B4E" stroke-width="1"/><g transform="translate(-4,176) rotate(-78)"><g transform="scale(22)" clip-path="url(#fclip)"><use href="#f-Jeff"/></g><circle r="22" fill="none" stroke="#D6AE55" stroke-width="2"/></g></g></g><g class="hp hp-Helen" transform="translate(208,0)"><g class="breathe"><g transform="translate(0,138)"><path d="M-26 60 Q-26 30 -12 28 H12 Q26 30 26 60 Z" fill="#A53D35" stroke="#0B2A1D" stroke-width="1.2"/></g><g class="sag"><g transform="translate(-3,150) rotate(14)"><g transform="scale(24)" clip-path="url(#fclip)"><use href="#f-Helen"/></g><circle r="24" fill="none" stroke="#D6AE55" stroke-width="2"/></g></g><path d="M20 196 L13 174" stroke="#E8B894" stroke-width="9" stroke-linecap="round"/><circle cx="12" cy="170" r="6" fill="#E8B894"/></g></g><g class="hp hp-Steve" transform="translate(264,0)"><g class="breathe"><g transform="translate(0,138)"><path d="M-26 60 Q-26 30 -12 28 H12 Q26 30 26 60 Z" fill="#2F4E86" stroke="#0B2A1D" stroke-width="1.2"/></g><g class="sip"><g transform="translate(0,148) rotate(4)"><g transform="scale(24)" clip-path="url(#fclip)"><use href="#f-Steve"/></g><circle r="24" fill="none" stroke="#D6AE55" stroke-width="2"/></g></g></g></g><g class="hp hp-Vicky" transform="translate(320,0)"><g class="breathe"><g transform="translate(0,138)"><path d="M-26 60 Q-26 30 -12 28 H12 Q26 30 26 60 Z" fill="#3B5FA0" stroke="#0B2A1D" stroke-width="1.2"/></g><g class="lean"><g transform="translate(-12,150) rotate(-24)"><g transform="scale(24)" clip-path="url(#fclip)"><use href="#f-Vicky"/></g><circle r="24" fill="none" stroke="#D6AE55" stroke-width="2"/></g></g></g></g>
+    <rect x="6" y="196" width="348" height="74" rx="6" fill="#7A4E2B"/><rect x="6" y="196" width="348" height="7" fill="#8E5E36"/>
+    <g transform="translate(50,204)"><path d="M-8 0 H8 V14 Q8 19 3 19 H-3 Q-8 19 -8 14 Z" fill="#F2E7CD" stroke="#6B4526" stroke-width="1.2"/><path d="M8 4 Q14 4 14 9 Q14 14 8 14" fill="none" stroke="#6B4526" stroke-width="1.6"/><ellipse cx="0" cy="1" rx="7" ry="2" fill="#4A2C17"/><g class="steam s0"><path d="M-3 -4 q-3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".7"/><path d="M3 -4 q3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".5"/></g></g><g transform="translate(106,204)"><path d="M-8 0 H8 V14 Q8 19 3 19 H-3 Q-8 19 -8 14 Z" fill="#F2E7CD" stroke="#6B4526" stroke-width="1.2"/><path d="M8 4 Q14 4 14 9 Q14 14 8 14" fill="none" stroke="#6B4526" stroke-width="1.6"/><ellipse cx="0" cy="1" rx="7" ry="2" fill="#4A2C17"/><g class="steam s1"><path d="M-3 -4 q-3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".7"/><path d="M3 -4 q3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".5"/></g></g><g transform="translate(196,204)"><path d="M-8 0 H8 V14 Q8 19 3 19 H-3 Q-8 19 -8 14 Z" fill="#F2E7CD" stroke="#6B4526" stroke-width="1.2"/><path d="M8 4 Q14 4 14 9 Q14 14 8 14" fill="none" stroke="#6B4526" stroke-width="1.6"/><ellipse cx="0" cy="1" rx="7" ry="2" fill="#4A2C17"/><g class="steam s0"><path d="M-3 -4 q-3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".7"/><path d="M3 -4 q3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".5"/></g></g><g transform="translate(274,204)"><path d="M-8 0 H8 V14 Q8 19 3 19 H-3 Q-8 19 -8 14 Z" fill="#F2E7CD" stroke="#6B4526" stroke-width="1.2"/><path d="M8 4 Q14 4 14 9 Q14 14 8 14" fill="none" stroke="#6B4526" stroke-width="1.6"/><ellipse cx="0" cy="1" rx="7" ry="2" fill="#4A2C17"/><g class="steam s1"><path d="M-3 -4 q-3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".7"/><path d="M3 -4 q3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".5"/></g></g><g transform="translate(330,204)"><path d="M-8 0 H8 V14 Q8 19 3 19 H-3 Q-8 19 -8 14 Z" fill="#F2E7CD" stroke="#6B4526" stroke-width="1.2"/><path d="M8 4 Q14 4 14 9 Q14 14 8 14" fill="none" stroke="#6B4526" stroke-width="1.6"/><ellipse cx="0" cy="1" rx="7" ry="2" fill="#4A2C17"/><g class="steam s2"><path d="M-3 -4 q-3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".7"/><path d="M3 -4 q3 -5 0 -9 t0 -9" fill="none" stroke="#F2E7CD" stroke-width="1.6" stroke-linecap="round" opacity=".5"/></g></g><g transform="translate(180,212)"><ellipse rx="22" ry="7" fill="#F7F1E3" stroke="#B7A98C" stroke-width="1"/><ellipse cx="-7" cy="-1" rx="7" ry="3.5" fill="#fff"/><circle cx="-7" cy="-1.5" r="2.4" fill="#F2B632"/><rect x="1" y="-4" width="14" height="4" rx="2" fill="#8B3A1A"/><circle cx="6" cy="2" r="3" fill="#3A2418"/><rect x="-14" y="1" width="8" height="3" rx="1.5" fill="#C9772E"/></g>
+    <g id="groan" opacity="0"><rect id="groanbg" x="0" y="0" width="80" height="24" rx="12" fill="#fff" stroke="#6B4526" stroke-width="1.2"/><path id="groantail" d="M0 0" fill="#fff" stroke="#6B4526" stroke-width="1.2"/><text id="groantx" x="0" y="16" font-family="Alegreya,Georgia,serif" font-weight="800" font-size="12.5" fill="#1E1812"></text></g>
+  </svg>
+  <p class="lovecap">Sunday, 9am.<span>The Craic Pack, recovering. Quietly.</span></p>
 </dialog>
 <dialog class="lb" id="lb"><button type="button" id="lbx" aria-label="Close photo">×</button><img id="lbimg" alt=""><p id="lbcap"></p></dialog>
 
@@ -1178,6 +1231,36 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       el.addEventListener('click',open);
       el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')open(e);});
     });
+  })();
+
+  // ---------- Sunday morning-after ----------
+  (function(){
+    var dlg=document.getElementById('morning'); if(!dlg)return;
+    var g=document.getElementById('groan'), bg=document.getElementById('groanbg'), tail=document.getElementById('groantail'), tx=document.getElementById('groantx');
+    var who=[['Seymon',40,158],['Louise',96,146],['Jeff',152,172],['Helen',208,160],['Steve',264,158],['Vicky',320,160]];
+    var lines=[['Never again.',4],['Who ordered the Jägers?',0],['My head…',1],['Is it still Saturday?',2],['Just a coffee. And a fry.',3],['What happened at Fitzsimons?',5],['I\'m grand. I\'m grand.',1],['Where\'s my other shoe?',4],['Zzzz…',0],['Water. Please.',2],['Same again tonight?',3]];
+    var iv=0, n=0;
+    function say(){
+      var l=lines[n%lines.length]; n++;
+      var w=who[l[1]]; tx.textContent=l[0];
+      var tw=tx.getComputedTextLength()+20, x=Math.max(8,Math.min(352-tw,w[1]-tw/2)), y=w[2]-72;
+      bg.setAttribute('x',x);bg.setAttribute('y',y);bg.setAttribute('width',tw);
+      tx.setAttribute('x',x+10);tx.setAttribute('y',y+16);
+      tail.setAttribute('d','M'+(w[1]-5)+' '+(y+23)+' L'+w[1]+' '+(y+33)+' L'+(w[1]+5)+' '+(y+23));
+      g.setAttribute('opacity','1');
+      setTimeout(function(){g.setAttribute('opacity','0');},2000);
+    }
+    function open(e){
+      if(e){e.preventDefault();e.stopPropagation();}
+      if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
+      n=Math.floor(Math.random()*lines.length);
+      setTimeout(say,500); clearInterval(iv); iv=setInterval(say,2600);
+    }
+    function close(){clearInterval(iv);g.setAttribute('opacity','0');if(dlg.open)dlg.close();}
+    dlg.addEventListener('close',function(){clearInterval(iv);g.setAttribute('opacity','0');});
+    document.getElementById('morningx').addEventListener('click',close);
+    dlg.addEventListener('click',function(e){if(e.target===dlg)close();});
+    document.querySelectorAll('[data-morning]').forEach(function(el){el.addEventListener('click',open);});
   })();
   // Photo lightbox
   var lb=document.getElementById('lb');
