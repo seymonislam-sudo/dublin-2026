@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Craic Pack — Dublin, 23–25 October</title>
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#14432F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Craic Pack">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="description" content="Three couples, one weekend in Dublin, 23–25 October. The plan, the crew and the pints.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Craic Pack — Dublin, 23–25 October">
@@ -266,6 +274,10 @@ main section[id]{scroll-margin-top:64px}
 .tod-night .sign{filter:drop-shadow(0 0 10px rgba(255,205,110,.55)) drop-shadow(0 2px 0 #0B2A1D)}
 @media (prefers-reduced-motion: no-preference){.tod-night .skyline .stars circle:nth-child(3n){animation:twinkle 3s ease-in-out infinite}.tod-night .skyline .stars circle:nth-child(3n+1){animation:twinkle 4.5s ease-in-out -1s infinite}}
 @keyframes twinkle{50%{opacity:.25}}
+/* Home-screen app: keep top items clear of the status bar */
+header.fascia .spicy,header.fascia .lucky{top:calc(env(safe-area-inset-top,0px) + 10px)}
+header.fascia .wrap{padding-top:calc(58px + env(safe-area-inset-top,0px))}
+html{background:#14432F}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
 .live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
