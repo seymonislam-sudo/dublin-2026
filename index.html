@@ -236,6 +236,31 @@ a{color:inherit}
 .dancefloor .names{color:#1E1812}
 .dancefloor .troupe{max-width:none;width:100%}
 .dancefloor .names{max-width:none;width:100%}
+/* ---------- Jig-off ---------- */
+.dancefloor .dancer{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.dancefloor .dancer svg{transition:transform .45s cubic-bezier(.2,1.4,.4,1);transform-origin:50% 96%}
+.dancefloor .arm{transform-box:view-box}
+.dancefloor .armL{transform-origin:29px 74px}
+.dancefloor .armR{transform-origin:71px 74px}
+.troupe.jigoff .dancer:not(.solo) .hop,.troupe.jigoff .dancer:not(.solo) .legL,.troupe.jigoff .dancer:not(.solo) .legR,.troupe.jigoff .dancer:not(.solo) .skirt{animation:none}
+.dancefloor .dancer.solo{z-index:2}
+.dancefloor .dancer.solo svg{transform:scale(1.18)}
+@media (prefers-reduced-motion: no-preference){
+  .troupe.jigoff .dancer:not(.solo) .armL{animation:clapL .38s ease-in-out infinite}
+  .troupe.jigoff .dancer:not(.solo) .armR{animation:clapR .38s ease-in-out infinite}
+  .troupe.jigoff .dancer:not(.solo) .head{animation:bob .38s ease-in-out infinite}
+  .dancefloor .dancer.solo .hop{animation:hopbig .4s ease-in-out infinite}
+  .dancefloor .dancer.solo .legL{animation:kickLbig .8s ease-in-out infinite}
+  .dancefloor .dancer.solo .legR{animation:kickRbig .8s ease-in-out infinite}
+  .dancefloor .dancer.solo .skirt{animation:swish .4s ease-in-out infinite}
+  .dancefloor .dancer.solo.spin svg{animation:jigspin .7s ease-in-out}
+}
+@keyframes clapL{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(-21deg)}}
+@keyframes clapR{0%,100%{transform:rotate(8deg)}50%{transform:rotate(21deg)}}
+@keyframes hopbig{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes kickLbig{0%,50%,100%{transform:rotate(0)}20%{transform:rotate(-100deg)}35%{transform:rotate(-20deg)}}
+@keyframes kickRbig{0%,50%,100%{transform:rotate(0)}70%{transform:rotate(100deg)}85%{transform:rotate(20deg)}}
+@keyframes jigspin{from{transform:scale(1.18) rotateY(0)}to{transform:scale(1.18) rotateY(360deg)}}
 /* ---------- Friday & Sunday scenes ---------- */
 .scenebox{padding:8px}
 .scene{display:block;width:100%;height:auto;border-radius:10px}
@@ -550,40 +575,34 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       <h4>Dance like nobody's filming (they are)</h4>
       <div class="stage scenebox" role="img" aria-label="Cartoon versions of all six of us Irish dancing in a line">
         <div class="dancefloor"><div class="troupe"><figure class="dancer"><svg viewBox="0 0 100 206" aria-hidden="true"><g class="hop"><g class="leg legL"><rect x="38" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="43" cy="197" rx="9" ry="5" fill="#111"/></g>
-<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><rect x="25" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/>
-<rect x="67" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/><path d="M34 70 H66 L63 132 H37 Z" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/>
+<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><path d="M34 70 H66 L63 132 H37 Z" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/>
 <path d="M34 70 H46 L44 132 H37 Z M66 70 H54 L56 132 H63 Z" fill="#1E5C43"/>
-<rect x="36" y="124" width="28" height="8" fill="#1E1812"/><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
+<rect x="36" y="124" width="28" height="8" fill="#1E1812"/><g class="arm armL"><rect x="25" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/></g><g class="arm armR"><rect x="67" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/></g><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
 <g transform="translate(50,37)"><g transform="scale(33)" clip-path="url(#fclip)"><use href="#f-Seymon"/></g><circle r="33" fill="none" stroke="#D6AE55" stroke-width="2.5"/></g></g></g></svg></figure><figure class="dancer"><svg viewBox="0 0 100 206" aria-hidden="true"><g class="hop"><g class="leg legL"><rect x="38" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="43" cy="197" rx="9" ry="5" fill="#111"/></g>
-<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><rect x="25" y="72" width="8" height="58" rx="4" fill="#1E5C43"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/>
-<rect x="67" y="72" width="8" height="58" rx="4" fill="#1E5C43"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/><path d="M36 70 H64 L61 110 H39 Z" fill="#1E5C43"/>
+<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><path d="M36 70 H64 L61 110 H39 Z" fill="#1E5C43"/>
 <path class="skirt" d="M38 104 H62 L82 138 Q50 146 18 138 Z" fill="#1E5C43" stroke="#D6AE55" stroke-width="2"/>
-<path d="M22 134 Q50 142 78 134" stroke="#D6AE55" stroke-width="2" fill="none"/><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
+<path d="M22 134 Q50 142 78 134" stroke="#D6AE55" stroke-width="2" fill="none"/><g class="arm armL"><rect x="25" y="72" width="8" height="58" rx="4" fill="#1E5C43"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/></g><g class="arm armR"><rect x="67" y="72" width="8" height="58" rx="4" fill="#1E5C43"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/></g><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
 <g transform="translate(50,37)"><g transform="scale(33)" clip-path="url(#fclip)"><use href="#f-Louise"/></g><circle r="33" fill="none" stroke="#D6AE55" stroke-width="2.5"/></g></g></g></svg></figure><figure class="dancer"><svg viewBox="0 0 100 206" aria-hidden="true"><g class="hop"><g class="leg legL"><rect x="38" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="43" cy="197" rx="9" ry="5" fill="#111"/></g>
-<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><rect x="25" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/>
-<rect x="67" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/><path d="M34 70 H66 L63 132 H37 Z" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/>
+<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><path d="M34 70 H66 L63 132 H37 Z" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/>
 <path d="M34 70 H46 L44 132 H37 Z M66 70 H54 L56 132 H63 Z" fill="#8A2E2E"/>
-<rect x="36" y="124" width="28" height="8" fill="#1E1812"/><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
+<rect x="36" y="124" width="28" height="8" fill="#1E1812"/><g class="arm armL"><rect x="25" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/></g><g class="arm armR"><rect x="67" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/></g><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
 <g transform="translate(50,37)"><g transform="scale(33)" clip-path="url(#fclip)"><use href="#f-Jeff"/></g><circle r="33" fill="none" stroke="#D6AE55" stroke-width="2.5"/></g></g></g></svg></figure><figure class="dancer"><svg viewBox="0 0 100 206" aria-hidden="true"><g class="hop"><g class="leg legL"><rect x="38" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="43" cy="197" rx="9" ry="5" fill="#111"/></g>
-<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><rect x="25" y="72" width="8" height="58" rx="4" fill="#8A2E2E"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/>
-<rect x="67" y="72" width="8" height="58" rx="4" fill="#8A2E2E"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/><path d="M36 70 H64 L61 110 H39 Z" fill="#8A2E2E"/>
+<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><path d="M36 70 H64 L61 110 H39 Z" fill="#8A2E2E"/>
 <path class="skirt" d="M38 104 H62 L82 138 Q50 146 18 138 Z" fill="#8A2E2E" stroke="#D6AE55" stroke-width="2"/>
-<path d="M22 134 Q50 142 78 134" stroke="#D6AE55" stroke-width="2" fill="none"/><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
+<path d="M22 134 Q50 142 78 134" stroke="#D6AE55" stroke-width="2" fill="none"/><g class="arm armL"><rect x="25" y="72" width="8" height="58" rx="4" fill="#8A2E2E"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/></g><g class="arm armR"><rect x="67" y="72" width="8" height="58" rx="4" fill="#8A2E2E"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/></g><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
 <g transform="translate(50,37)"><g transform="scale(33)" clip-path="url(#fclip)"><use href="#f-Helen"/></g><circle r="33" fill="none" stroke="#D6AE55" stroke-width="2.5"/></g></g></g></svg></figure><figure class="dancer"><svg viewBox="0 0 100 206" aria-hidden="true"><g class="hop"><g class="leg legL"><rect x="38" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="43" cy="197" rx="9" ry="5" fill="#111"/></g>
-<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><rect x="25" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/>
-<rect x="67" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/><path d="M34 70 H66 L63 132 H37 Z" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/>
+<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><path d="M34 70 H66 L63 132 H37 Z" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/>
 <path d="M34 70 H46 L44 132 H37 Z M66 70 H54 L56 132 H63 Z" fill="#23427A"/>
-<rect x="36" y="124" width="28" height="8" fill="#1E1812"/><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
+<rect x="36" y="124" width="28" height="8" fill="#1E1812"/><g class="arm armL"><rect x="25" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/></g><g class="arm armR"><rect x="67" y="72" width="8" height="58" rx="4" fill="#FFFFFF" stroke="#7A6A55" stroke-width="1.2"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/></g><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
 <g transform="translate(50,37)"><g transform="scale(33)" clip-path="url(#fclip)"><use href="#f-Steve"/></g><circle r="33" fill="none" stroke="#D6AE55" stroke-width="2.5"/></g></g></g></svg></figure><figure class="dancer"><svg viewBox="0 0 100 206" aria-hidden="true"><g class="hop"><g class="leg legL"><rect x="38" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="43" cy="197" rx="9" ry="5" fill="#111"/></g>
-<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><rect x="25" y="72" width="8" height="58" rx="4" fill="#23427A"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/>
-<rect x="67" y="72" width="8" height="58" rx="4" fill="#23427A"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/><path d="M36 70 H64 L61 110 H39 Z" fill="#23427A"/>
+<g class="leg legR"><rect x="53" y="128" width="9" height="66" rx="4.5" fill="#2B211A"/><ellipse cx="57" cy="197" rx="9" ry="5" fill="#111"/></g><path d="M36 70 H64 L61 110 H39 Z" fill="#23427A"/>
 <path class="skirt" d="M38 104 H62 L82 138 Q50 146 18 138 Z" fill="#23427A" stroke="#D6AE55" stroke-width="2"/>
-<path d="M22 134 Q50 142 78 134" stroke="#D6AE55" stroke-width="2" fill="none"/><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
+<path d="M22 134 Q50 142 78 134" stroke="#D6AE55" stroke-width="2" fill="none"/><g class="arm armL"><rect x="25" y="72" width="8" height="58" rx="4" fill="#23427A"/><circle cx="29" cy="131" r="4.5" fill="#E8B894"/></g><g class="arm armR"><rect x="67" y="72" width="8" height="58" rx="4" fill="#23427A"/><circle cx="71" cy="131" r="4.5" fill="#E8B894"/></g><g class="head"><rect x="45" y="58" width="10" height="14" fill="#E8B894"/>
 <g transform="translate(50,37)"><g transform="scale(33)" clip-path="url(#fclip)"><use href="#f-Vicky"/></g><circle r="33" fill="none" stroke="#D6AE55" stroke-width="2.5"/></g></g></g></svg></figure></div>
         <div class="floor"></div>
         <div class="names"><span>Seymon</span><span>Louise</span><span>Jeff</span><span>Helen</span><span>Steve</span><span>Vicky</span></div>
         </div>
-        <p class="stagecap" data-cap="The Craic Pack Dance Troupe. Tap to pause.">The Craic Pack Dance Troupe. Tap to pause.</p>
+        <p class="stagecap" data-cap="The Craic Pack Dance Troupe. Tap a dancer for a solo.">The Craic Pack Dance Troupe. Tap a dancer for a solo.</p>
       </div>
       <div class="stop"><div class="time">Morning</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16M8 3c-1 1.5 1 2.5 0 4M12 3c-1 1.5 1 2.5 0 4M3 22h14"/></g></svg><strong>Breakfast at The Morgan</strong><p>All six of us, strong coffee, full Irish.</p></div></div>
       <div class="stop"><div class="time">12:00</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 6.5v7M9.5 7.5v6M14.5 7.5v6M12 13.5l-3 8M12 13.5l3.5 3.5 3.5-1.5"/></g></svg><strong>Irish dancing lesson</strong><span class="badge ok">Booked</span><p>Merchant's Arch, 5 minutes from the hotel. Two hours. Arms straight, dignity optional.</p></div></div>
@@ -955,6 +974,31 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     sip.addEventListener('keyup',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();stop();}});
     again.addEventListener('click',pour);
     draw();showBest();
+  })();
+
+  // ---------- Jig-off ----------
+  (function(){
+    var troupe=document.querySelector('.dancefloor .troupe'); if(!troupe)return;
+    var stage=troupe.closest('.stage'), cap=stage.querySelector('.stagecap');
+    var ds=[].slice.call(troupe.querySelectorAll('.dancer'));
+    var names=['Seymon','Louise','Jeff','Helen','Steve','Vicky'];
+    var shouts=['Go on, {n}!','Lash it out, {n}!','Show us, {n}!','{n}! Legend!','Hup, {n}!','Mighty stuff, {n}!'];
+    var timer=0;
+    function reset(){clearTimeout(timer);troupe.classList.remove('jigoff');ds.forEach(function(x){x.classList.remove('solo','spin');});cap.textContent=cap.getAttribute('data-cap');}
+    ds.forEach(function(d,k){
+      d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-label','Solo for '+names[k]);
+      function go(e){
+        if(e)e.stopPropagation();
+        var on=d.classList.contains('solo'); reset(); if(on)return;
+        stage.classList.remove('paused');
+        troupe.classList.add('jigoff'); d.classList.add('solo','spin');
+        setTimeout(function(){d.classList.remove('spin');},750);
+        cap.textContent=shouts[Math.floor(Math.random()*shouts.length)].replace('{n}',names[k])+' Tap again to stop.';
+        timer=setTimeout(reset,7000);
+      }
+      d.addEventListener('click',go);
+      d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go(e);}});
+    });
   })();
   // Photo lightbox
   var lb=document.getElementById('lb');
