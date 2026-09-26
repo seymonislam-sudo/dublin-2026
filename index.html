@@ -228,7 +228,8 @@ dialog.morning{width:min(94vw,460px)}
 .grp[hidden],.gtest[hidden]{display:none !important}
 
 /* ---------- Shortcut bar ---------- */
-.jump{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px);transition:box-shadow .2s}
+.jump{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--bg);border-bottom:1px solid var(--line);transition:box-shadow .2s}
+.jump::before{content:"";position:absolute;left:0;right:0;bottom:100%;height:env(safe-area-inset-top,0px);background:var(--bg);pointer-events:none}
 .jump.stuck{box-shadow:0 4px 14px rgba(0,0,0,.12)}
 .jumprow{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;max-width:760px;margin:0 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .jumprow::-webkit-scrollbar{display:none}
@@ -275,12 +276,7 @@ main section[id]{scroll-margin-top:64px}
 @media (prefers-reduced-motion: no-preference){.tod-night .skyline .stars circle:nth-child(3n){animation:twinkle 3s ease-in-out infinite}.tod-night .skyline .stars circle:nth-child(3n+1){animation:twinkle 4.5s ease-in-out -1s infinite}}
 @keyframes twinkle{50%{opacity:.25}}
 /* Home-screen app: keep top items clear of the status bar */
-header.fascia .spicy,header.fascia .lucky{top:10px}
-header.fascia .wrap{padding-top:58px}
-@supports (padding-top: env(safe-area-inset-top)){
-  header.fascia .spicy,header.fascia .lucky{top:max(10px, calc(env(safe-area-inset-top) - 4px))}
-  header.fascia .wrap{padding-top:max(58px, calc(env(safe-area-inset-top) + 40px))}
-}
+
 html{background:#14432F}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
@@ -1473,13 +1469,13 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     var links=[].slice.call(bar.querySelectorAll('button[data-j]'));
     links.forEach(function(a){a.addEventListener('click',function(e){
       var t=document.getElementById(a.dataset.j); if(!t)return; e.preventDefault();
-      var y=t.getBoundingClientRect().top+window.scrollY-bar.offsetHeight-8;
+      var y=t.getBoundingClientRect().top+window.scrollY-bar.offsetHeight-(parseFloat(getComputedStyle(bar).top)||0)-8;
       window.scrollTo({top:y,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
     });});
     function setOn(id){links.forEach(function(a){var on=a.dataset.j===id;a.classList.toggle('on',on);if(on){var r=a.getBoundingClientRect(),rr=a.parentNode.getBoundingClientRect();if(r.left<rr.left||r.right>rr.right)a.parentNode.scrollBy({left:r.left-rr.left-40,behavior:'smooth'});}});}
     function onScroll(){
-      bar.classList.toggle('stuck',bar.getBoundingClientRect().top<=0&&window.scrollY>0);
-      var line=bar.offsetHeight+80, cur=null;
+      bar.classList.toggle('stuck',window.scrollY>0&&bar.getBoundingClientRect().top<=parseFloat(getComputedStyle(bar).top)+1);
+      var line=bar.offsetHeight+(parseFloat(getComputedStyle(bar).top)||0)+80, cur=null;
       links.forEach(function(a){var t=document.getElementById(a.dataset.j);if(t&&t.getBoundingClientRect().top<=line)cur=cur&&document.getElementById(cur).getBoundingClientRect().top>t.getBoundingClientRect().top?cur:a.dataset.j;});
       if(cur!==onScroll.last){onScroll.last=cur;setOn(cur);}
     }
