@@ -114,11 +114,12 @@
   })();
   document.getElementById('add').addEventListener('click', function(){ n++; render(); G.hit();
     if (n === 6) setTimeout(function(){
-      CraicImageLoader.extras();
-      var im=document.getElementById('spicyimg'), lbi=document.getElementById('lbimg');
-      lbi.src=im.src; lbi.alt=im.alt;
-      document.getElementById('lbcap').textContent='Six pints in. Soakage required: find a spice bag. Louise already has.';
-      if (lb.showModal) lb.showModal();
+      CraicImageLoader.extras(function(){
+        var im=document.getElementById('spicyimg'), lbi=document.getElementById('lbimg');
+        lbi.src=im.src; lbi.alt=im.alt;
+        document.getElementById('lbcap').textContent='Six pints in. Soakage required: find a spice bag. Louise already has.';
+        if (lb.showModal) lb.showModal();
+      });
     }, 450);
   });
   document.getElementById('undo').addEventListener('click', function(){ if (n > 0) n--; render(); });
@@ -1244,20 +1245,22 @@
   document.getElementById('lbx').addEventListener('click',function(){lb.close();});
   lb.addEventListener('click',function(e){ if(e.target===lb) lb.close(); });
   document.getElementById('spicy').addEventListener('click',function(){
-    CraicImageLoader.extras();
-    var im=document.getElementById('spicyimg');
-    document.getElementById('lbimg').src=im.src;
-    document.getElementById('lbimg').alt=im.alt;
-    document.getElementById('lbcap').textContent="Soakage secured. Louise has found the spice bag. ☘";
-    if(lb.showModal) lb.showModal();
+    CraicImageLoader.extras(function(){
+      var im=document.getElementById('spicyimg');
+      document.getElementById('lbimg').src=im.src;
+      document.getElementById('lbimg').alt=im.alt;
+      document.getElementById('lbcap').textContent="Soakage secured. Louise has found the spice bag. ☘";
+      if(lb.showModal) lb.showModal();
+    });
   });
   document.getElementById('lucky').addEventListener('click',function(){
-    CraicImageLoader.extras();
-    var im=document.getElementById('luckyimg');
-    document.getElementById('lbimg').src=im.src;
-    document.getElementById('lbimg').alt=im.alt;
-    document.getElementById('lbcap').textContent="You found it. Welcome to the Four Leaf Clover Club ☘";
-    if(lb.showModal) lb.showModal();
+    CraicImageLoader.extras(function(){
+      var im=document.getElementById('luckyimg');
+      document.getElementById('lbimg').src=im.src;
+      document.getElementById('lbimg').alt=im.alt;
+      document.getElementById('lbcap').textContent="You found it. Welcome to the Four Leaf Clover Club ☘";
+      if(lb.showModal) lb.showModal();
+    });
   });
   var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1351,7 +1354,7 @@
   function apply(keys){var imgs=document.querySelectorAll('[data-craic-image]');imgs.forEach(function(el){var k=el.getAttribute('data-craic-image');if(keys.indexOf(k)<0||!window.CRAIC_IMAGES||!window.CRAIC_IMAGES[k])return;var u=window.CRAIC_IMAGES[k];if(el.tagName.toLowerCase()==='image')el.setAttribute('href',u);else el.src=u;el.removeAttribute('data-craic-image');});}
   function gallery(){load('images/gallery-images.js',function(){apply(['before','after']);});}
   function crew(){load('images/crew-images.js',function(){apply(['f-Seymon','f-Louise','f-Jeff','f-Helen','f-Steve','f-Vicky','seymon-card','louise-card','jeff-card','helen-card','steve-card','vicky-card']);});}
-  function extras(){load('images/extra-images.js',function(){apply(['spice','lucky']);});}
+  function extras(done){load('images/extra-images.js',function(){apply(['spice','lucky']);if(done)done();});}
   window.CraicImageLoader={gallery:gallery,crew:crew,extras:extras,apply:apply};
   document.addEventListener('DOMContentLoaded',function(){gallery();var crewEl=document.getElementById('crew');if(crewEl&&'IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting;})){crew();o.disconnect();}},{rootMargin:'500px'});o.observe(crewEl);}else crew();});
 })(); 
