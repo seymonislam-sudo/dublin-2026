@@ -1214,6 +1214,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   })();
   document.getElementById('add').addEventListener('click', function(){ n++; render(); G.hit();
     if (n === 6) setTimeout(function(){
+      CraicImageLoader.extras();
       var im=document.getElementById('spicyimg'), lbi=document.getElementById('lbimg');
       lbi.src=im.src; lbi.alt=im.alt;
       document.getElementById('lbcap').textContent='Six pints in. Soakage required: find a spice bag. Louise already has.';
@@ -1506,6 +1507,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
         if(k<1&&dlg.open)requestAnimationFrame(f);else h.remove();})(performance.now());
     }
     function open(e){
+      if(window.CraicImageLoader)CraicImageLoader.crew();
       if(e){e.preventDefault();e.stopPropagation();}
       if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','');
       box.innerHTML='';
@@ -2339,6 +2341,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   document.getElementById('lbx').addEventListener('click',function(){lb.close();});
   lb.addEventListener('click',function(e){ if(e.target===lb) lb.close(); });
   document.getElementById('spicy').addEventListener('click',function(){
+    CraicImageLoader.extras();
     var im=document.getElementById('spicyimg');
     document.getElementById('lbimg').src=im.src;
     document.getElementById('lbimg').alt=im.alt;
@@ -2346,6 +2349,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     if(lb.showModal) lb.showModal();
   });
   document.getElementById('lucky').addEventListener('click',function(){
+    CraicImageLoader.extras();
     var im=document.getElementById('luckyimg');
     document.getElementById('lbimg').src=im.src;
     document.getElementById('lbimg').alt=im.alt;
