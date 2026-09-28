@@ -796,7 +796,8 @@
       NAMES.forEach(function(n){
         var el=document.getElementById('f-'+n'), im=faces[n];
         if(!el||!im)return;
-        var u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
+        var u=window.CRAIC_IMAGES&&window.CRAIC_IMAGES['f-'+n];
+        if(!u&&el) u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
         if(u&&im.src!==u) im.src=u;
       });
     }
@@ -1046,7 +1047,8 @@
       NAMES.forEach(function(n){
         var el=document.getElementById('f-'+n), im=faces[n];
         if(!el||!im)return;
-        var u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
+        var u=window.CRAIC_IMAGES&&window.CRAIC_IMAGES['f-'+n];
+        if(!u&&el) u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
         if(u&&im.src!==u) im.src=u;
       });
     }
