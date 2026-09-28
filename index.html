@@ -2425,6 +2425,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
         path.style.strokeDashoffset=Math.max(0,L-sLead);
         placeAll(sLead,t,drunk);
         if(el<total+400) raf=requestAnimationFrame(step);
+        else raf=null;
       }
       raf=requestAnimationFrame(step);
     }
