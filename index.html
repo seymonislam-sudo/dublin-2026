@@ -128,7 +128,7 @@ a{color:inherit}
 /* ---------- Leprechaun ---------- */
 .lep{position:fixed;left:0;bottom:calc(env(safe-area-inset-bottom,0px) + 6px);width:70px;height:88px;z-index:60;pointer-events:auto;cursor:pointer;transform:translateX(-90px)}
 .lep svg{width:100%;height:100%;overflow:visible}
-.lep .run{animation:lephop .28s ease-in-out infinite}
+.lep .run{animation:lephop .28s ease-in-out infinite;animation-play-state:paused}.lep.running .run{animation-play-state:running}
 .lep .lg1{transform-origin:30px 62px;animation:leplegA .28s ease-in-out infinite}
 .lep .lg2{transform-origin:40px 62px;animation:leplegB .28s ease-in-out infinite}
 @keyframes lephop{50%{transform:translateY(-5px)}}
@@ -1476,9 +1476,9 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     document.body.appendChild(el);
     var shown=0, last=0, scrolled=0, lastY=window.scrollY, running=false;
     function run(){
-      if(running)return; running=true; shown++; last=Date.now();
+      if(running)return; running=true; shown++; last=Date.now(); el.classList.add('running');
       var w=window.innerWidth, t0=null, D=3600;
-      (function f(t){if(!t0)t0=t;var k=(t-t0)/D;el.style.transform='translateX('+(-90+(w+180)*k).toFixed(0)+'px)';if(k<1)requestAnimationFrame(f);else{running=false;el.classList.remove('talk');el.style.transform='translateX(-90px)';}})(performance.now());
+      (function f(t){if(!t0)t0=t;var k=(t-t0)/D;el.style.transform='translateX('+(-90+(w+180)*k).toFixed(0)+'px)';if(k<1)requestAnimationFrame(f);else{running=false;el.classList.remove('running','talk');el.style.transform='translateX(-90px)';}})(performance.now());
     }
     el.addEventListener('click',function(){el.classList.add('talk');setTimeout(function(){el.classList.remove('talk');},1400);});
     window.addEventListener('scroll',function(){
