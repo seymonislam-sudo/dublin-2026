@@ -1878,6 +1878,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     // pause when hidden or scrolled away
     var pausedFrom=null;
     function pause(){ if(state==='play'||state==='ready'){ pausedFrom=state; setState('paused'); draw(performance.now()/1000); } }
+    window.PM={hide:pause,show:function(){ fit(); },dbg:function(){return {state:state,score:score,level:level,lives:lives,visible:visible,raf:raf};}};
     document.addEventListener('visibilitychange',function(){ if(document.hidden) pause(); });
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(en){ visible=en.isIntersecting; if(!visible) pause(); else if(state==='title'&&!raf){ running=false; draw(performance.now()/1000); } }); },{threshold:0.2}).observe(cv); }
     window.addEventListener('resize',fit);
@@ -2302,7 +2303,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     document.addEventListener('visibilitychange',function(){ if(document.hidden) pause(); });
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(en){ visible=en.isIntersecting; if(!visible) pause(); else if(!raf){ if(state==='play'||state==='ready'||state==='dying'||state==='clear') go(); else draw(performance.now()/1000); } }); },{threshold:0.2}).observe(cv); }
     window.addEventListener('resize',function(){ if(active()) fit(); });
-    window.II={show:function(){ fit(); }, dbg:function(){ return {state:state,alive:inv?alive().length:0,score:score,lives:lives,wave:wave,visible:visible,raf:raf,stateT:stateT}; }};
+    window.II={show:function(){ fit(); }, hide:pause, dbg:function(){ return {state:state,alive:inv?alive().length:0,score:score,lives:lives,wave:wave,visible:visible,raf:raf,stateT:stateT}; }};
     px=tx=W/2; makeBunkers(); newWave(); hud();
   })();
   // ---------- Arcade game selector ----------
@@ -2314,7 +2315,9 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       wk:["Whiskey Kong. Big Seamus is rolling whiskey barrels down the pub. Climb to the top, where your mate's waiting with a pint. Jump barrels for points, and grab a spice bag to smash them.","◀ ▶ walk · ▲ ▼ climb · tap the screen or JUMP to jump"],
       ii:["Irish Invasion. Leprechauns, tourists, sheep, pints and rain clouds are marching on Dublin Castle. Hold them off from behind the castle walls, and shoot the Stag Do bus for a mystery bonus.","Drag on the screen, or use ◀ ▶, to move. It fires by itself"]};
     tabs.forEach(function(b){ b.addEventListener('click',function(){
-      var g=b.dataset.g; cab.dataset.g=g;
+      var g=b.dataset.g, previous=cab.dataset.g;
+      if(previous!==g){ if(previous==='pm'&&window.PM) window.PM.hide(); if(previous==='wk'&&window.WK) window.WK.hide(); if(previous==='ii'&&window.II) window.II.hide(); }
+      cab.dataset.g=g;
       tabs.forEach(function(x){ x.setAttribute('aria-pressed',x===b?'true':'false'); });
       cab.querySelectorAll('.scrn').forEach(function(s){ s.hidden=s.dataset.g!==g; });
       document.getElementById('arclede').textContent=INFO[g][0];
