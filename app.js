@@ -792,7 +792,17 @@
     var cv=document.getElementById('wk'); if(!cv||!cv.getContext) return;
     var ctx=cv.getContext('2d'), W=240, H=280;
     var NAMES=['Seymon','Louise','Jeff','Helen','Steve','Vicky'], faces={};
-    NAMES.forEach(function(n){ var el=document.getElementById('f-'+n); if(!el) return; var im=new Image(); im.src=el.getAttribute('href'); faces[n]=im; });
+    function syncFaces(){
+      NAMES.forEach(function(n){
+        var el=document.getElementById('f-'+n'), im=faces[n];
+        if(!el||!im)return;
+        var u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
+        if(u&&im.src!==u) im.src=u;
+      });
+    }
+    NAMES.forEach(function(n){ faces[n]=new Image(); });
+    syncFaces();
+    window.addEventListener('craic-faces-ready',syncFaces);
     function heroName(){ try{ var h=localStorage.getItem('craicpack-pm-hero'); if(h&&faces[h]) return h; }catch(e){} return 'Seymon'; }
     var BEST='craicpack-wk-best', best=0; try{ best=parseInt(localStorage.getItem(BEST)||'0',10)||0; }catch(e){}
     var G=[
@@ -1030,7 +1040,19 @@
   (function(){
     var cv=document.getElementById('ii'); if(!cv||!cv.getContext) return;
     var ctx=cv.getContext('2d'), W=240, H=280;
-    var faces={}; ['Seymon','Louise','Jeff','Helen','Steve','Vicky'].forEach(function(n){ var el=document.getElementById('f-'+n); if(!el) return; var im=new Image(); im.src=el.getAttribute('href'); faces[n]=im; });
+    var faces={};
+    var NAMES=['Seymon','Louise','Jeff','Helen','Steve','Vicky'];
+    function syncFaces(){
+      NAMES.forEach(function(n){
+        var el=document.getElementById('f-'+n), im=faces[n];
+        if(!el||!im)return;
+        var u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
+        if(u&&im.src!==u) im.src=u;
+      });
+    }
+    NAMES.forEach(function(n){ faces[n]=new Image(); });
+    syncFaces();
+    window.addEventListener('craic-faces-ready',syncFaces);
     function heroName(){ try{ var h=localStorage.getItem('craicpack-pm-hero'); if(h&&faces[h]) return h; }catch(e){} return 'Seymon'; }
     var BEST='craicpack-ii-best', best=0; try{ best=parseInt(localStorage.getItem(BEST)||'0',10)||0; }catch(e){}
     var TYPES=[{k:'lep',pts:40},{k:'tour',pts:30},{k:'sheep',pts:20},{k:'pint',pts:10},{k:'cloud',pts:10}];
@@ -1353,7 +1375,10 @@
   function load(src,done){if(loaded[src]){done&&done();return;}var s=document.createElement('script');s.src=src;s.async=true;s.onload=function(){loaded[src]=1;done&&done();};document.head.appendChild(s);}
   function apply(keys){var imgs=document.querySelectorAll('[data-craic-image],[data-craic-face]');imgs.forEach(function(el){var k=el.getAttribute('data-craic-image');if(!k){k='f-'+el.getAttribute('data-craic-face');}if(keys.indexOf(k)<0||!window.CRAIC_IMAGES||!window.CRAIC_IMAGES[k])return;var u=window.CRAIC_IMAGES[k];if(el.tagName.toLowerCase()==='image'){el.setAttribute('href',u);el.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href',u);}else el.src=u;el.removeAttribute('data-craic-image');el.removeAttribute('data-craic-face');});}
   function gallery(){load('images/gallery-images.js',function(){apply(['before','after']);});}
-  function crew(){load('images/crew-images.js',function(){apply(['f-Seymon','f-Louise','f-Jeff','f-Helen','f-Steve','f-Vicky','seymon-card','louise-card','jeff-card','helen-card','steve-card','vicky-card']);});}
+  function crew(){load('images/crew-images.js',function(){
+    apply(['f-Seymon','f-Louise','f-Jeff','f-Helen','f-Steve','f-Vicky','seymon-card','louise-card','jeff-card','helen-card','steve-card','vicky-card']);
+    window.dispatchEvent(new Event('craic-faces-ready'));
+  });}
   function extras(done){load('images/extra-images.js',function(){apply(['spice','lucky']);if(done)done();});}
   window.CraicImageLoader={gallery:gallery,crew:crew,extras:extras,apply:apply};
   document.addEventListener('DOMContentLoaded',function(){gallery();crew();});
