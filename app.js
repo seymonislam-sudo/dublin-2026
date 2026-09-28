@@ -1356,5 +1356,5 @@
   function crew(){load('images/crew-images.js',function(){apply(['f-Seymon','f-Louise','f-Jeff','f-Helen','f-Steve','f-Vicky','seymon-card','louise-card','jeff-card','helen-card','steve-card','vicky-card']);});}
   function extras(done){load('images/extra-images.js',function(){apply(['spice','lucky']);if(done)done();});}
   window.CraicImageLoader={gallery:gallery,crew:crew,extras:extras,apply:apply};
-  document.addEventListener('DOMContentLoaded',function(){gallery();var crewEl=document.getElementById('crew');if(crewEl&&'IntersectionObserver' in window){var o=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting;})){crew();o.disconnect();}},{rootMargin:'500px'});o.observe(crewEl);}else crew();});
+  document.addEventListener('DOMContentLoaded',function(){gallery();crew();});
 })(); 
