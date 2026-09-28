@@ -796,7 +796,7 @@
       NAMES.forEach(function(n){
         var el=document.getElementById('f-'+n'), im=faces[n];
         if(!el||!im)return;
-        var u=window.CRAIC_IMAGES&&window.CRAIC_IMAGES['f-'+n];
+        var u=window.CRAIC_CREW_IMAGES&&window.CRAIC_CREW_IMAGES['f-'+n];
         if(!u&&el) u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
         if(u&&im.src!==u) im.src=u;
       });
@@ -1047,7 +1047,7 @@
       NAMES.forEach(function(n){
         var el=document.getElementById('f-'+n), im=faces[n];
         if(!el||!im)return;
-        var u=window.CRAIC_IMAGES&&window.CRAIC_IMAGES['f-'+n];
+        var u=window.CRAIC_CREW_IMAGES&&window.CRAIC_CREW_IMAGES['f-'+n];
         if(!u&&el) u=el.getAttribute('href')||el.getAttributeNS('http://www.w3.org/1999/xlink','href');
         if(u&&im.src!==u) im.src=u;
       });
@@ -1374,14 +1374,16 @@
 
 (function(){
   var loaded={};
-  function load(src,done){if(loaded[src]){done&&done();return;}var s=document.createElement('script');s.src=src;s.async=true;s.onload=function(){loaded[src]=1;done&&done();};document.head.appendChild(s);}
-  function apply(keys){var imgs=document.querySelectorAll('[data-craic-image],[data-craic-face]');imgs.forEach(function(el){var k=el.getAttribute('data-craic-image');if(!k){k='f-'+el.getAttribute('data-craic-face');}if(keys.indexOf(k)<0||!window.CRAIC_IMAGES||!window.CRAIC_IMAGES[k])return;var u=window.CRAIC_IMAGES[k];if(el.tagName.toLowerCase()==='image'){el.setAttribute('href',u);el.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href',u);}else el.src=u;el.removeAttribute('data-craic-image');el.removeAttribute('data-craic-face');});}
-  function gallery(){load('images/gallery-images.js',function(){apply(['before','after']);});}
-  function crew(){load('images/crew-images.js',function(){
-    apply(['f-Seymon','f-Louise','f-Jeff','f-Helen','f-Steve','f-Vicky','seymon-card','louise-card','jeff-card','helen-card','steve-card','vicky-card']);
+  var imageSets={};
+  function load(src,done){if(loaded[src]){done&&done(imageSets[src]);return;}var s=document.createElement('script');s.src=src;s.async=true;s.onload=function(){loaded[src]=1;imageSets[src]=window.CRAIC_IMAGES||{};done&&done(imageSets[src]);};document.head.appendChild(s);}
+  function apply(keys,set){set=set||window.CRAIC_IMAGES||{};var imgs=document.querySelectorAll('[data-craic-image],[data-craic-face]');imgs.forEach(function(el){var k=el.getAttribute('data-craic-image');if(!k){k='f-'+el.getAttribute('data-craic-face');}if(keys.indexOf(k)<0||!set[k])return;var u=set[k];if(el.tagName.toLowerCase()==='image'){el.setAttribute('href',u);el.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href',u);}else el.src=u;el.removeAttribute('data-craic-image');el.removeAttribute('data-craic-face');});}
+  function gallery(){load('images/gallery-images.js',function(set){apply(['before','after'],set);});}
+  function crew(){load('images/crew-images.js',function(set){
+    window.CRAIC_CREW_IMAGES=set;
+    apply(['f-Seymon','f-Louise','f-Jeff','f-Helen','f-Steve','f-Vicky','seymon-card','louise-card','jeff-card','helen-card','steve-card','vicky-card'],set);
     window.dispatchEvent(new Event('craic-faces-ready'));
   });}
-  function extras(done){load('images/extra-images.js',function(){apply(['spice','lucky']);if(done)done();});}
+  function extras(done){load('images/extra-images.js',function(set){apply(['spice','lucky'],set);if(done)done();});}
   window.CraicImageLoader={gallery:gallery,crew:crew,extras:extras,apply:apply};
   document.addEventListener('DOMContentLoaded',function(){gallery();crew();});
 })(); 
