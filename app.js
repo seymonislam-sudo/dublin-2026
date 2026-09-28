@@ -1383,7 +1383,7 @@
   function load(src,done){
     if(loaded[src]){done&&done(imageSets[src]);return;}
     var s=document.createElement('script');
-    s.src=src;
+    s.src=src+'?v=19';
     s.async=true;
     s.onload=function(){
       loaded[src]=1;
