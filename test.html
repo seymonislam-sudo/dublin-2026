@@ -334,17 +334,11 @@ footer .ver{display:block;font-size:12px;opacity:.6;margin-top:6px}
 @media (prefers-reduced-motion: no-preference){.cfront .cbtn:not(:disabled){animation:cbglow 2.2s ease-in-out infinite}}
 @keyframes cbglow{0%,100%{box-shadow:0 0 0 3px rgba(214,174,85,.35),0 4px 14px rgba(0,0,0,.45);transform:scale(1)}50%{box-shadow:0 0 0 7px rgba(247,214,121,.28),0 0 22px rgba(247,214,121,.55),0 4px 14px rgba(0,0,0,.45);transform:scale(1.04)}}
 
-/* ---------- Lost? ---------- */
-.lost{display:grid;gap:12px}
-@media (min-width:640px){.lost{grid-template-columns:1fr 1fr}.lost .lcard:first-child{grid-column:1/-1}}
-.lcard h5{gap:6px}
-.lsmall{color:var(--muted);font-size:14.5px !important}
+/* ---------- Back to base ---------- */
+.card .hname{font-family:'Alegreya',Georgia,serif;font-weight:800;font-size:24px;margin-top:0}
 .lacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
 .lbtn{font:inherit;font-weight:700;font-size:15px;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;text-decoration:none;background:var(--green-2);color:#F2E7CD !important;display:inline-block}
 .lbtn.ghost{background:transparent;color:var(--ink) !important;border:1px solid var(--line)}
-.lbtn.red{background:#B3322B}
-.lcard.sos{border-color:#B3322B}
-#lostnow b{font-family:'Alegreya',Georgia,serif;font-size:18px}
 .taxi{position:fixed;inset:0;z-index:9999;background:var(--green);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
 .taxi[hidden]{display:none}
 .taxi .tk{font-size:20px;color:#DCCFB0;margin-bottom:10px}
@@ -375,6 +369,26 @@ html.trip #live{padding-top:14px}
 .live .ghost{background:transparent;color:#F2E7CD;border:1px solid rgba(242,231,205,.4) !important}
 .live .msg{color:#DCCFB0;font-size:15.5px;margin-bottom:12px}
 .live .extra{margin-top:10px;font-size:14.5px;color:var(--gold-lit)}
+
+/* Now & Next: big and proud */
+.live{padding:24px 22px 22px;border:2px solid var(--gold-lit);box-shadow:0 10px 28px rgba(0,0,0,.25),inset 0 -4px 0 #0B2A1D}
+.live .top{margin-bottom:18px;flex-direction:column-reverse;align-items:flex-start;gap:8px}
+#livettl{white-space:nowrap}
+#livettl{font-size:clamp(32px,9vw,44px) !important}
+.live .pill{font-size:13.5px;padding:5px 12px}
+.live .row{grid-template-columns:1fr;gap:4px;padding:16px 0}
+.live .lab{font-size:14px;padding-top:0}
+.live .what{font-size:clamp(28px,7.6vw,38px);line-height:1.1}
+.live .ic{width:30px;height:30px;vertical-align:-5px;margin-right:9px}
+.live .row:first-of-type .what{font-size:clamp(34px,9.4vw,48px)}
+.live .row:first-of-type .ic{width:36px;height:36px;vertical-align:-6px}
+.live .where{font-size:18px;margin-top:6px}
+.live .when{font-size:clamp(22px,6vw,28px);margin-top:8px}
+.live .bar{height:12px;border-radius:6px;margin:6px 0 18px}
+.live .bar i{border-radius:6px}
+.live .acts a,.live .acts button{font-size:17px;padding:12px 18px;border-radius:12px}
+.live .msg{font-size:18px}
+.live .extra{font-size:16px}
 .stop.live-now{background:linear-gradient(90deg,rgba(214,174,85,.18),transparent 80%);border-radius:10px;margin:0 -10px;padding-left:10px;padding-right:10px}
 .stop.live-now .time::after{content:"NOW";display:block;font-size:11px;letter-spacing:.1em;color:#fff;background:#B3322B;border-radius:4px;width:max-content;padding:0 6px;margin-top:4px}
 .stop.live-now.sim .time::after{content:"PREVIEW";background:#9A5418}
@@ -730,7 +744,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
 <g class="ripples" stroke-width="1.2" fill="none"><path d="M40 82 h40 M120 88 h30 M470 84 h50 M540 90 h30 M250 90 h100"/></g>
 </svg></div>
 </header>
-<nav class="jump" id="jump" aria-label="Jump to section"><div class="jumprow"><button type="button" data-j="live"><span aria-hidden="true">⏱️</span>Now & Next</button><button type="button" data-j="tally"><span aria-hidden="true">🍺</span>Pints</button><button type="button" data-j="plan"><span aria-hidden="true">📅</span>Plan</button><button type="button" data-j="map"><span aria-hidden="true">🗺️</span>Map</button><button type="button" data-j="crew"><span aria-hidden="true">👥</span>Crew</button><button type="button" data-j="cheers"><span aria-hidden="true">🥂</span>Toast</button><button type="button" data-j="arcade"><span aria-hidden="true">🕹️</span>Arcade</button><button type="button" data-j="splitg"><span aria-hidden="true">☘️</span>Split the G</button><button type="button" data-j="essentials"><span aria-hidden="true">🧳</span>Essentials</button><button type="button" data-j="lost"><span aria-hidden="true">🆘</span>Lost?</button></div></nav>
+<nav class="jump" id="jump" aria-label="Jump to section"><div class="jumprow"><button type="button" data-j="live"><span aria-hidden="true">⏱️</span>Now & Next</button><button type="button" data-j="tally"><span aria-hidden="true">🍺</span>Pints</button><button type="button" data-j="plan"><span aria-hidden="true">📅</span>Plan</button><button type="button" data-j="map"><span aria-hidden="true">🗺️</span>Map</button><button type="button" data-j="crew"><span aria-hidden="true">👥</span>Crew</button><button type="button" data-j="cheers"><span aria-hidden="true">🥂</span>Toast</button><button type="button" data-j="arcade"><span aria-hidden="true">🕹️</span>Arcade</button><button type="button" data-j="splitg"><span aria-hidden="true">☘️</span>Split the G</button><button type="button" data-j="essentials"><span aria-hidden="true">🧳</span>Essentials</button><button type="button" data-j="lost"><span aria-hidden="true">🏨</span>Hotel</button></div></nav>
 
 <main class="wrap">
 
@@ -980,30 +994,14 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   </section>
 
   <section id="lost" aria-labelledby="lostttl">
-    <h3 id="lostttl">Lost?</h3>
-    <p class="lede">Don't panic. Start at the top.</p>
-    <div class="lost">
-      <div class="card lcard">
-        <h5>📍 Find the group</h5>
-        <p id="lostnow">Once we're in Dublin, this shows where the plan says we are right now.</p>
-        <div class="lacts" id="lostacts"></div>
-        <p class="lsmall">Then share your live location in the group chat so someone can come and get you: tap <b>+</b> (iPhone) or <b>📎</b> (Android), then <b>Location</b>, then <b>Share live location</b>.</p>
-        <div class="lacts"><a class="lbtn" href="https://chat.whatsapp.com/JbCWZ3I8yIQIcUxRh01ekq" target="_blank" rel="noopener">Open our group chat</a></div>
-      </div>
-      <div class="card lcard">
-        <h5>🏨 Back to base</h5>
-        <p><b>The Morgan Hotel</b><br>10 Fleet St, Temple Bar, Dublin 2, D02 AT86</p>
-        <p class="lsmall">If all else fails, head back here. For a taxi, use the FREENOW app or flag one down.</p>
-        <div class="lacts">
-          <a class="lbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=The%20Morgan%20Hotel%2010%20Fleet%20Street%20Dublin&amp;travelmode=walking" target="_blank" rel="noopener">Walk there</a>
-          <button type="button" class="lbtn" id="taxibtn">Show the taxi driver</button>
-          <a class="lbtn ghost" href="tel:+35316437000">Call the hotel</a>
-        </div>
-      </div>
-      <div class="card lcard sos">
-        <h5>🚨 Real emergency</h5>
-        <p>Dial <b>112</b> or <b>999</b>. Both work in Ireland.</p>
-        <div class="lacts"><a class="lbtn red" href="tel:112">Call 112</a></div>
+    <h3 id="lostttl">Back to base</h3>
+    <div class="card lcard">
+      <p class="hname">The Morgan Hotel</p>
+      <p>10 Fleet St, Temple Bar, Dublin 2, D02 AT86</p>
+      <div class="lacts">
+        <a class="lbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=The%20Morgan%20Hotel%2010%20Fleet%20Street%20Dublin&amp;travelmode=walking" target="_blank" rel="noopener">Walk there</a>
+        <button type="button" class="lbtn" id="taxibtn">Show the taxi driver</button>
+        <a class="lbtn ghost" href="tel:+35316437000">Call the hotel</a>
       </div>
     </div>
     <div class="taxi" id="taxi" hidden role="dialog" aria-modal="true" aria-label="Hotel address for the taxi driver">
@@ -1289,27 +1287,12 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.v);});});
   })();
 
-  // ---------- Lost? ----------
+  // ---------- Hotel taxi view ----------
   (function(){
-    var box=document.getElementById('lostnow'), acts=document.getElementById('lostacts');
-    var taxi=document.getElementById('taxi');
+    var taxi=document.getElementById('taxi'); if(!taxi)return;
     document.getElementById('taxibtn').addEventListener('click',function(){taxi.hidden=false;document.getElementById('taxiclose').focus();});
     document.getElementById('taxiclose').addEventListener('click',function(){taxi.hidden=true;});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')taxi.hidden=true;});
-    var HOTEL='The Morgan Hotel, 10 Fleet Street, Dublin';
-    function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
-    function go(dest,mode,label){return '<a class="lbtn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(dest)+'&travelmode='+(mode||'walking')+'">'+label+'</a>';}
-    window.craicLost=function(){
-      if(!window.craicNow)return;
-      var n=window.craicNow(), c=n.cur, h='', a='';
-      if(n.now<n.from){h='Once we\'re in Dublin, this shows where the plan says we are right now.';}
-      else if(n.now>=n.to){h='We\'re home. Nobody\'s lost. Probably.';}
-      else if(!c||/Wheels up|Fly home/.test(c.what)){h='We\'re on a plane. Hard to get lost.';}
-      else if(/Breakfast/.test(c.what)){h='The plan says: <b>'+esc(c.what)+'</b>'+(/Morgan/.test(c.what)?'.':' at The Morgan.');a=go(HOTEL,'walking','Directions to the hotel');}
-      else if(c.dest){h='The plan says we\'re at: <b>'+esc(c.what)+'</b>. '+esc(c.where);a=go(c.dest[0],c.dest[1],c.dest[1]==='driving'?'Taxi route':'Directions to them');}
-      else{h='The plan says: <b>'+esc(c.what)+'</b>. '+esc(c.where)+' Ask in the WhatsApp group.';}
-      box.innerHTML=h; acts.innerHTML=a; acts.hidden=!a;
-    };
   })();
 
   // ---------- Now & Next ----------
@@ -1349,7 +1332,6 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       var row=document.querySelector('#jump .jumprow'), lb=row&&row.querySelector('[data-j="lost"]'), nb=row&&row.querySelector('[data-j="live"]');
       if(lb&&nb)row.insertBefore(lb,nb.nextSibling);
     })();
-    window.craicNow=function(){var now=sim!==null?sim:Date.now(),c=null;E.forEach(function(e){if(e.t<=now)c=e;});return {now:now,cur:c,from:LIVE_FROM,to:LIVE_TO};};
     var body=document.getElementById('lvbody'), pill=document.getElementById('lvpill');
     function hhmm(t){return new Date(t).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Dublin'});}
     function dayname(t){return new Date(t).toLocaleDateString('en-GB',{weekday:'short',timeZone:'Europe/Dublin'});}
@@ -1360,8 +1342,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     function stopEl(e){if(e.stop==null)return null;var d=document.getElementById(e.day);return d?d.querySelectorAll('.stop')[e.stop]:null;}
     function openDay(day){var b=document.querySelector('.days button[data-d="'+day+'"]');if(b)b.click();}
     function mark(e){document.querySelectorAll('.stop.live-now').forEach(function(x){x.classList.remove('live-now','sim');});var el=e&&stopEl(e);if(el){el.classList.add('live-now');if(sim!==null)el.classList.add('sim');}}
-    function render(){render1();if(window.craicLost)window.craicLost();}
-    function render1(){
+    function render(){
       var real=Date.now(), now=sim!==null?sim:real;
       var h='';
       if(sim===null && now<LIVE_FROM){
