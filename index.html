@@ -333,6 +333,34 @@ footer .ver{display:block;font-size:12px;opacity:.6;margin-top:6px}
 .cfront .cbtn:disabled{opacity:.7}
 @media (prefers-reduced-motion: no-preference){.cfront .cbtn:not(:disabled){animation:cbglow 2.2s ease-in-out infinite}}
 @keyframes cbglow{0%,100%{box-shadow:0 0 0 3px rgba(214,174,85,.35),0 4px 14px rgba(0,0,0,.45);transform:scale(1)}50%{box-shadow:0 0 0 7px rgba(247,214,121,.28),0 0 22px rgba(247,214,121,.55),0 4px 14px rgba(0,0,0,.45);transform:scale(1.04)}}
+
+
+/* ---------- Secrets ---------- */
+.sec{padding:14px 16px}
+.scount{font-family:'Alegreya',Georgia,serif;font-weight:800;font-size:20px;margin-bottom:6px}
+.scount .sbar{display:block;height:8px;border-radius:4px;background:var(--line);margin-top:8px;overflow:hidden}
+.scount .sbar i{display:block;height:100%;background:var(--green-2);border-radius:4px;transition:width .4s}
+.slist{list-style:none;margin:0;padding:0}
+.slist li{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.slist li:first-child{border-top:0}
+.slist .se{font-size:26px;text-align:center}
+.slist .st{font-weight:700;font-size:16.5px;line-height:1.25}
+.slist .sd{color:var(--muted);font-size:14px;line-height:1.35;margin-top:2px}
+.slist .sb{font:inherit;font-weight:700;font-size:15px;border:0;border-radius:10px;padding:10px 14px;background:var(--green-2);color:#F2E7CD;cursor:pointer;white-space:nowrap}
+.slist li.got .sb{background:transparent;color:var(--green-2);border:1px solid var(--line)}
+.slist li.got .st::after{content:' ✓';color:#3FA564}
+/* ---------- Back to base ---------- */
+.card .hname{font-family:'Alegreya',Georgia,serif;font-weight:800;font-size:24px;margin-top:0}
+.lacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.lbtn{font:inherit;font-weight:700;font-size:15px;border:0;border-radius:10px;padding:10px 14px;cursor:pointer;text-decoration:none;background:var(--green-2);color:#F2E7CD !important;display:inline-block}
+.lbtn.ghost{background:transparent;color:var(--ink) !important;border:1px solid var(--line)}
+.taxi{position:fixed;inset:0;z-index:9999;background:var(--green);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+.taxi[hidden]{display:none}
+.taxi .tk{font-size:20px;color:#DCCFB0;margin-bottom:10px}
+.taxi .tn{font-family:'Alegreya',Georgia,serif;font-weight:800;font-size:clamp(38px,11vw,72px);line-height:1.05;margin-bottom:16px}
+.taxi .ta{font-size:clamp(26px,7vw,44px);line-height:1.3;font-weight:700;margin-bottom:34px}
+.taxi .lbtn{background:#F2E7CD;color:#1E1812 !important;font-size:18px;padding:12px 28px}
+html.trip #live{padding-top:14px}
 /* ---------- Now / Next ---------- */
 #live{padding-top:22px}
 .live{background:var(--green);color:#F2E7CD;border-radius:16px;padding:18px 18px 16px;box-shadow:inset 0 -3px 0 #0B2A1D}
@@ -356,6 +384,26 @@ footer .ver{display:block;font-size:12px;opacity:.6;margin-top:6px}
 .live .ghost{background:transparent;color:#F2E7CD;border:1px solid rgba(242,231,205,.4) !important}
 .live .msg{color:#DCCFB0;font-size:15.5px;margin-bottom:12px}
 .live .extra{margin-top:10px;font-size:14.5px;color:var(--gold-lit)}
+
+/* Now & Next: big and proud */
+.live{padding:24px 22px 22px;border:2px solid var(--gold-lit);box-shadow:0 10px 28px rgba(0,0,0,.25),inset 0 -4px 0 #0B2A1D}
+.live .top{margin-bottom:18px;flex-direction:column-reverse;align-items:flex-start;gap:8px}
+#livettl{white-space:nowrap}
+#livettl{font-size:clamp(32px,9vw,44px) !important}
+.live .pill{font-size:13.5px;padding:5px 12px}
+.live .row{grid-template-columns:1fr;gap:4px;padding:16px 0}
+.live .lab{font-size:14px;padding-top:0}
+.live .what{font-size:clamp(28px,7.6vw,38px);line-height:1.1}
+.live .ic{width:30px;height:30px;vertical-align:-5px;margin-right:9px}
+.live .row:first-of-type .what{font-size:clamp(34px,9.4vw,48px)}
+.live .row:first-of-type .ic{width:36px;height:36px;vertical-align:-6px}
+.live .where{font-size:18px;margin-top:6px}
+.live .when{font-size:clamp(22px,6vw,28px);margin-top:8px}
+.live .bar{height:12px;border-radius:6px;margin:6px 0 18px}
+.live .bar i{border-radius:6px}
+.live .acts a,.live .acts button{font-size:17px;padding:12px 18px;border-radius:12px}
+.live .msg{font-size:18px}
+.live .extra{font-size:16px}
 .stop.live-now{background:linear-gradient(90deg,rgba(214,174,85,.18),transparent 80%);border-radius:10px;margin:0 -10px;padding-left:10px;padding-right:10px}
 .stop.live-now .time::after{content:"NOW";display:block;font-size:11px;letter-spacing:.1em;color:#fff;background:#B3322B;border-radius:4px;width:max-content;padding:0 6px;margin-top:4px}
 .stop.live-now.sim .time::after{content:"PREVIEW";background:#9A5418}
@@ -674,7 +722,8 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
   try{ seen=sessionStorage.getItem('craic-intro')==='1'; sessionStorage.setItem('craic-intro','1'); }catch(e){}
   var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function gone(){ if(i && i.parentNode) i.parentNode.removeChild(i); i=null; }
-  if(seen||reduce){ gone(); return; }
+  var trip=/[?&]trip/.test(location.search)||(Date.now()>=Date.parse('2026-10-23T06:00:00+01:00')&&Date.now()<Date.parse('2026-10-25T15:35:00Z'));
+  if(seen||reduce||trip){ gone(); return; }
   function bye(){ if(!i) return; i.classList.add('bye'); setTimeout(gone,450); }
   i.addEventListener('click',bye);
   i.addEventListener('touchstart',bye,{passive:true});
@@ -710,7 +759,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
 <g class="ripples" stroke-width="1.2" fill="none"><path d="M40 82 h40 M120 88 h30 M470 84 h50 M540 90 h30 M250 90 h100"/></g>
 </svg></div>
 </header>
-<nav class="jump" id="jump" aria-label="Jump to section"><div class="jumprow"><button type="button" data-j="live"><span aria-hidden="true">⏱️</span>Now & Next</button><button type="button" data-j="tally"><span aria-hidden="true">🍺</span>Pints</button><button type="button" data-j="plan"><span aria-hidden="true">📅</span>Plan</button><button type="button" data-j="map"><span aria-hidden="true">🗺️</span>Map</button><button type="button" data-j="crew"><span aria-hidden="true">👥</span>Crew</button><button type="button" data-j="cheers"><span aria-hidden="true">🥂</span>Toast</button><button type="button" data-j="arcade"><span aria-hidden="true">🕹️</span>Arcade</button><button type="button" data-j="splitg"><span aria-hidden="true">☘️</span>Split the G</button><button type="button" data-j="essentials"><span aria-hidden="true">🧳</span>Essentials</button></div></nav>
+<nav class="jump" id="jump" aria-label="Jump to section"><div class="jumprow"><button type="button" data-j="live"><span aria-hidden="true">⏱️</span>Now & Next</button><button type="button" data-j="tally"><span aria-hidden="true">🍺</span>Pints</button><button type="button" data-j="plan"><span aria-hidden="true">📅</span>Plan</button><button type="button" data-j="map"><span aria-hidden="true">🗺️</span>Map</button><button type="button" data-j="crew"><span aria-hidden="true">👥</span>Crew</button><button type="button" data-j="cheers"><span aria-hidden="true">🥂</span>Toast</button><button type="button" data-j="arcade"><span aria-hidden="true">🕹️</span>Arcade</button><button type="button" data-j="splitg"><span aria-hidden="true">☘️</span>Split the G</button><button type="button" data-j="essentials"><span aria-hidden="true">🧳</span>Essentials</button><button type="button" data-j="lost"><span aria-hidden="true">🏨</span>Hotel</button><button type="button" data-j="secrets"><span aria-hidden="true">🔍</span>Secrets</button></div></nav>
 
 <main class="wrap">
 
@@ -959,6 +1008,25 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     <ol class="stops"><li><span class="pn idea">5</span><div><strong>The Palace Bar</strong><p><span class="walk" title="Walking time from The Morgan"><svg class="wk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="4" r="1.8"/><path d="M13 7.5l-2 6 3 3.5 1 4.5M11 13.5l-2.5 7.5M12.5 8l-4 2.5-1 3.5M13 8.5l2 3 3 1"/></g></svg>1 min</span>Next door to the hotel</p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Palace%20Bar%20Fleet%20Street%20Dublin" target="_blank" rel="noopener">Directions</a></li><li><span class="pn idea">6</span><div><strong>Temple Bar Food Market</strong><p><span class="walk" title="Walking time from The Morgan"><svg class="wk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="4" r="1.8"/><path d="M13 7.5l-2 6 3 3.5 1 4.5M11 13.5l-2.5 7.5M12.5 8l-4 2.5-1 3.5M13 8.5l2 3 3 1"/></g></svg>7 min</span>Saturdays, Meeting House Square</p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Temple%20Bar%20Food%20Market%20Meeting%20House%20Square%20Dublin" target="_blank" rel="noopener">Directions</a></li><li><span class="pn idea">7</span><div><strong>Urban Brewing</strong><p><span class="walk" title="Walking time from The Morgan"><svg class="wk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="4" r="1.8"/><path d="M13 7.5l-2 6 3 3.5 1 4.5M11 13.5l-2.5 7.5M12.5 8l-4 2.5-1 3.5M13 8.5l2 3 3 1"/></g></svg>15 min</span>Brewery bar in old vaults, CHQ</p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Urban%20Brewing%20CHQ%20Building%20Dublin" target="_blank" rel="noopener">Directions</a></li><li><span class="pn idea">8</span><div><strong>Café en Seine</strong><p><span class="walk" title="Walking time from The Morgan"><svg class="wk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="4" r="1.8"/><path d="M13 7.5l-2 6 3 3.5 1 4.5M11 13.5l-2.5 7.5M12.5 8l-4 2.5-1 3.5M13 8.5l2 3 3 1"/></g></svg>9 min</span>Cocktails, Dawson St</p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Cafe%20en%20Seine%2040%20Dawson%20Street%20Dublin" target="_blank" rel="noopener">Directions</a></li><li><span class="pn idea">9</span><div><strong>O'Donoghue's</strong><p><span class="walk" title="Walking time from The Morgan"><svg class="wk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="4" r="1.8"/><path d="M13 7.5l-2 6 3 3.5 1 4.5M11 13.5l-2.5 7.5M12.5 8l-4 2.5-1 3.5M13 8.5l2 3 3 1"/></g></svg>15 min</span>Trad pub by the Green</p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=O%27Donoghue%27s%20pub%20Merrion%20Row%20Dublin" target="_blank" rel="noopener">Directions</a></li><li><span class="pn idea">10</span><div><strong>Toners</strong><p><span class="walk" title="Walking time from The Morgan"><svg class="wk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="4" r="1.8"/><path d="M13 7.5l-2 6 3 3.5 1 4.5M11 13.5l-2.5 7.5M12.5 8l-4 2.5-1 3.5M13 8.5l2 3 3 1"/></g></svg>20 min</span>Proper old pub, Baggot St</p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Toners%20pub%20Baggot%20Street%20Dublin" target="_blank" rel="noopener">Directions</a></li><li><span class="pn idea">11</span><div><strong>Jameson Distillery</strong><p><span class="walk" title="Walking time from The Morgan"><svg class="wk" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="4" r="1.8"/><path d="M13 7.5l-2 6 3 3.5 1 4.5M11 13.5l-2.5 7.5M12.5 8l-4 2.5-1 3.5M13 8.5l2 3 3 1"/></g></svg>25 min</span>If anyone's keen, Bow St</p></div><a href="https://www.google.com/maps/search/?api=1&amp;query=Jameson%20Distillery%20Bow%20St%20Dublin" target="_blank" rel="noopener">Directions</a></li></ol>
   </section>
 
+  <section id="lost" aria-labelledby="lostttl">
+    <h3 id="lostttl">Back to base</h3>
+    <div class="card lcard">
+      <p class="hname">The Morgan Hotel</p>
+      <p>10 Fleet St, Temple Bar, Dublin 2, D02 AT86</p>
+      <div class="lacts">
+        <a class="lbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=The%20Morgan%20Hotel%2010%20Fleet%20Street%20Dublin&amp;travelmode=walking" target="_blank" rel="noopener">Walk there</a>
+        <button type="button" class="lbtn" id="taxibtn">Show the taxi driver</button>
+        <a class="lbtn ghost" href="tel:+35316437000">Call the hotel</a>
+      </div>
+    </div>
+    <div class="taxi" id="taxi" hidden role="dialog" aria-modal="true" aria-label="Hotel address for the taxi driver">
+      <p class="tk">Please take me to</p>
+      <p class="tn">The Morgan Hotel</p>
+      <p class="ta">10 Fleet Street<br>Temple Bar, Dublin 2<br>D02 AT86</p>
+      <button type="button" class="lbtn" id="taxiclose">Close</button>
+    </div>
+  </section>
+
   <section id="essentials">
     <h3>The Essentials</h3>
     <p class="lede">Screenshot this bit. Signal in pubs is terrible.</p>
@@ -988,6 +1056,15 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
         <p>Euros, but cards work everywhere. Same plugs as the UK, so no adapters. Bring photo ID for the flight; check what Aer Lingus accepts. Pack a waterproof.</p></div>
       <div class="card"><h5><svg class="cic sos" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></g></svg>Emergencies</h5>
         <p><b>112</b> or <b>999</b>, both work in Ireland.</p></div>
+    </div>
+  </section>
+
+  <section id="secrets" aria-labelledby="secttl">
+    <h3 id="secttl">Secrets</h3>
+    <p class="lede">Things hidden around the site. Hunt for them yourself, or tap <b>Show me</b>.</p>
+    <div class="card sec">
+      <div class="scount" id="scount"></div>
+      <ul class="slist" id="slist"></ul>
     </div>
   </section>
 
@@ -1234,6 +1311,14 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.v);});});
   })();
 
+  // ---------- Hotel taxi view ----------
+  (function(){
+    var taxi=document.getElementById('taxi'); if(!taxi)return;
+    document.getElementById('taxibtn').addEventListener('click',function(){taxi.hidden=false;document.getElementById('taxiclose').focus();});
+    document.getElementById('taxiclose').addEventListener('click',function(){taxi.hidden=true;});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')taxi.hidden=true;});
+  })();
+
   // ---------- Now & Next ----------
   (function(){
     var M='The Morgan Hotel, 10 Fleet Street, Dublin';
@@ -1258,6 +1343,19 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     var LIVE_TO=new Date('2026-10-25T15:35:00+00:00').getTime();
     var CLOCKS=new Date('2026-10-25T01:00:00+00:00').getTime();
     var sim=null, autoDone=false;
+    // Trip mode: from Friday morning to landing on Sunday, Now & Next and Lost? move to the top.
+    // Test with ?trip (Saturday late morning), ?trip=fri, ?trip=sat or ?trip=sun
+    var tq=location.search.match(/[?&]trip(?:=(fri|sat|sun))?(?:&|$)/);
+    if(tq){sim=new Date({fri:'2026-10-23T19:25:00+01:00',sat:'2026-10-24T11:20:00+01:00',sun:'2026-10-25T10:30:00+00:00'}[tq[1]||'sat']).getTime();}
+    (function(){
+      var real=Date.now();
+      if(!(tq||(real>=LIVE_FROM&&real<LIVE_TO)))return;
+      document.documentElement.classList.add('trip');
+      var main=document.querySelector('main.wrap'), live=document.getElementById('live'), lost=document.getElementById('lost');
+      if(main&&live){main.insertBefore(live,main.firstChild);if(lost)main.insertBefore(lost,live.nextSibling);}
+      var row=document.querySelector('#jump .jumprow'), lb=row&&row.querySelector('[data-j="lost"]'), nb=row&&row.querySelector('[data-j="live"]');
+      if(lb&&nb)row.insertBefore(lb,nb.nextSibling);
+    })();
     var body=document.getElementById('lvbody'), pill=document.getElementById('lvpill');
     function hhmm(t){return new Date(t).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Dublin'});}
     function dayname(t){return new Date(t).toLocaleDateString('en-GB',{weekday:'short',timeZone:'Europe/Dublin'});}
@@ -1475,7 +1573,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     document.body.appendChild(el);
     var shown=0, last=0, scrolled=0, lastY=window.scrollY, running=false;
     function run(){
-      if(running)return; running=true; shown++; last=Date.now();
+      if(running)return; running=true; shown++; last=Date.now(); if(window.craicFound)window.craicFound('lep');
       var w=window.innerWidth, t0=null, D=3600;
       (function f(t){if(!t0)t0=t;var k=(t-t0)/D;el.style.transform='translateX('+(-90+(w+180)*k).toFixed(0)+'px)';if(k<1)requestAnimationFrame(f);else{running=false;el.classList.remove('talk');el.style.transform='translateX(-90px)';}})(performance.now());
     }
@@ -1485,6 +1583,7 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
       var arc=document.getElementById('arcade'), ar=arc&&arc.getBoundingClientRect(), inArcade=ar&&ar.bottom>0&&ar.top<window.innerHeight;
       if(!inArcade && shown<2 && scrolled>2500 && performance.now()>20000 && Date.now()-last>90000 && Math.random()<.02){scrolled=0;run();}
     },{passive:true});
+    window.craicLep=run;
     if(/[?&#]lep/.test(location.search+location.hash))setTimeout(run,1500);
   })();
 
@@ -1554,6 +1653,65 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:40px 0 30px;f
     document.querySelectorAll('[data-morning]').forEach(function(el){el.addEventListener('click',open);});
   })();
 
+
+  // ---------- Secrets ----------
+  (function(){
+    var list=document.getElementById('slist'), count=document.getElementById('scount'); if(!list)return;
+    var KEY='craicpack-secrets', got={};
+    try{got=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){}
+    function $(q){return document.querySelector(q);}
+    function goTo(el,cb){
+      if(!el){cb&&cb();return;}
+      var bar=document.getElementById('jump'), off=bar?bar.offsetHeight+16:16;
+      var y=Math.max(0,el.getBoundingClientRect().top+window.scrollY-off-40);
+      window.scrollTo({top:y,behavior:'smooth'}); setTimeout(function(){cb&&cb();},750);
+    }
+    function lightbox(img,cap){
+      var lb=document.getElementById('lb'), im=document.getElementById(img), li=document.getElementById('lbimg');
+      li.src=im.src; li.alt=im.alt; document.getElementById('lbcap').textContent=cap;
+      if(lb.showModal)lb.showModal();
+    }
+    var S=[
+      {k:'spice',e:'🍟',t:'The spice bag',d:'Top left of the header. Someone got caught.',
+        go:function(){window.scrollTo({top:0,behavior:'smooth'});setTimeout(function(){$('#spicy').click();},700);},hook:'#spicy'},
+      {k:'clover',e:'🍀',t:'The Four Leaf Clover Club',d:'Top right of the header. Members only.',
+        go:function(){window.scrollTo({top:0,behavior:'smooth'});setTimeout(function(){$('#lucky').click();},700);},hook:'#lucky'},
+      {k:'bob',e:'🤪',t:'Bobbleheads',d:'Tap any of us in the header.',
+        go:function(){window.scrollTo({top:0,behavior:'smooth'});setTimeout(function(){[].forEach.call(document.querySelectorAll('.bob'),function(b,i){setTimeout(function(){b.click();},i*180);});},700);},hook:'.bob'},
+      {k:'jig',e:'💃',t:'The jig-off',d:'Saturday in the Plan. Tap a dancer for a solo.',
+        go:function(){var tab=$('.days [data-d="sat"]');if(tab)tab.click();var st=$('#sat .dancefloor');goTo(st,function(){var ds=document.querySelectorAll('#sat .dancer');if(ds.length)ds[Math.floor(Math.random()*ds.length)].click();});},hook:'.dancer'},
+      {k:'love',e:'❤️',t:'Where it all began',d:'Tap Fitzsimons in the Plan, or the heart on the map.',
+        go:function(){var b=$('[data-love]');if(b)b.click();},hook:'[data-love]'},
+      {k:'morning',e:'🥴',t:'Sunday morning, live',d:'Tap "Breakfast, slowly" on Sunday.',
+        go:function(){var b=$('[data-morning]');if(b)b.click();},hook:'[data-morning]'},
+      {k:'six',e:'🍺',t:'Six pints in',d:'Add your sixth pint on the Pint-o-meter.',
+        go:function(){lightbox('spicyimg','Six pints in. Soakage required: find a spice bag. Louise already has.');}},
+      {k:'lep',e:'☘️',t:'The leprechaun',d:'He runs past now and then while you scroll. Tap him.',
+        go:function(){if(window.craicLep)window.craicLep();}},
+      {k:'tod',e:'🌙',t:'Dublin o\'clock',d:'The header follows the time of day in Dublin.',
+        go:function(){var hd=$('header.fascia');if(!hd)return;var ph=['dawn','day','dusk','night'],was=ph.filter(function(p){return hd.classList.contains('tod-'+p);})[0];
+          window.scrollTo({top:0,behavior:'smooth'});
+          ph.concat([was]).forEach(function(p,i){setTimeout(function(){ph.forEach(function(k){hd.classList.toggle('tod-'+k,k===p);});},700+i*1300);});}}
+    ];
+    if(!window.craicLep)S=S.filter(function(x){return x.k!=='lep';});
+    function save(){try{localStorage.setItem(KEY,JSON.stringify(got));}catch(e){}}
+    function paint(){
+      var n=S.filter(function(x){return got[x.k];}).length;
+      count.innerHTML=(n===S.length?'All '+n+' found. Legend. ☘':'Found '+n+' of '+S.length)+'<span class="sbar"><i style="width:'+(100*n/S.length)+'%"></i></span>';
+      S.forEach(function(x){x.li.classList.toggle('got',!!got[x.k]);});
+    }
+    window.craicFound=function(k){if(got[k])return;got[k]=1;save();paint();};
+    S.forEach(function(x){
+      var li=document.createElement('li');
+      li.innerHTML='<span class="se" aria-hidden="true">'+x.e+'</span><div><div class="st">'+x.t+'</div><div class="sd">'+x.d+'</div></div><button type="button" class="sb">Show me</button>';
+      li.querySelector('.sb').addEventListener('click',function(){window.craicFound(x.k);x.go();});
+      list.appendChild(li); x.li=li;
+      if(x.hook)[].forEach.call(document.querySelectorAll(x.hook),function(el){el.addEventListener('click',function(){window.craicFound(x.k);});});
+    });
+    var add=document.getElementById('add');
+    if(add)add.addEventListener('click',function(){setTimeout(function(){var n=document.getElementById('n');if(n&&+n.textContent>=6)window.craicFound('six');},0);});
+    paint();
+  })();
   // ---------- Shortcut bar ----------
   (function(){
     var bar=document.getElementById('jump'); if(!bar)return;
