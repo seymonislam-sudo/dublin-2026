@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Irish Exit — Six Pints to Dublin</title>
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<meta name="theme-color" content="#14432F">
+<meta name="description" content="The Craic Pack's group anthem. Press play.">
+<meta property="og:type" content="music.song">
+<meta property="og:title" content="The Irish Exit — Six Pints to Dublin">
+<meta property="og:description" content="The Craic Pack's group anthem. Press play.">
+<meta property="og:url" content="https://seymonislam-sudo.github.io/dublin-2026/anthem.html">
+<meta property="og:image" content="https://seymonislam-sudo.github.io/dublin-2026/anthem-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Craic Pack in Irish fancy dress, with the title The Irish Exit">
+<meta property="og:audio" content="https://seymonislam-sudo.github.io/dublin-2026/audio/group.mp3">
+<meta property="og:audio:type" content="audio/mpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://seymonislam-sudo.github.io/dublin-2026/anthem-preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Alegreya:wght@800&family=Alegreya+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#14432F;--green-deep:#0E3123;--gold:#D6AE55;--cream:#F2E7CD;--ink:#1E1812;--soft:#E9D9A8}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{min-height:100vh;min-height:100svh;background:radial-gradient(120% 80% at 50% 0%,#1B5A3F 0%,var(--green) 45%,var(--green-deep) 100%);color:var(--cream);font-family:'Alegreya Sans',system-ui,sans-serif;display:flex;justify-content:center;padding:28px 16px calc(28px + env(safe-area-inset-bottom))}
+main{width:100%;max-width:460px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.k{font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.photo{width:min(100%,330px);height:auto;border-radius:18px;border:5px solid var(--gold);display:block;box-shadow:0 16px 36px rgba(0,0,0,.45);transform:rotate(-1.5deg)}
+h1{font-family:'Uncial Antiqua',Georgia,serif;font-weight:400;font-size:clamp(38px,11vw,54px);line-height:1;margin:22px 0 6px}
+h2{font-family:'Alegreya',Georgia,serif;font-weight:800;font-size:clamp(22px,6.4vw,28px);margin:0 0 20px;color:var(--soft)}
+.play{display:inline-flex;align-items:center;gap:14px;border:3px solid var(--ink);background:var(--gold);color:var(--ink);border-radius:999px;padding:12px 28px 12px 14px;font:700 21px 'Alegreya Sans',sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);animation:pulse 2.2s ease-in-out infinite}
+.play .ic{width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center}
+.play svg{width:20px;height:20px;fill:currentColor}
+.play.on{background:var(--cream);animation:none}
+.play:focus-visible{outline:3px solid var(--cream);outline-offset:4px}
+@keyframes pulse{0%,100%{box-shadow:0 6px 18px rgba(0,0,0,.4),0 0 0 0 rgba(214,174,85,.6)}50%{box-shadow:0 6px 18px rgba(0,0,0,.4),0 0 0 14px rgba(214,174,85,0)}}
+@media (prefers-reduced-motion:reduce){.play{animation:none}}
+.prog{width:100%;margin:26px 0 4px}
+.bar{position:relative;height:8px;border-radius:99px;background:rgba(242,231,205,.2);cursor:pointer;touch-action:none}
+.bar i{position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;background:var(--gold)}
+.times{display:flex;justify-content:space-between;font-size:14px;color:rgba(242,231,205,.7);margin-top:8px;font-variant-numeric:tabular-nums}
+.links{display:flex;flex-direction:column;gap:10px;width:100%;margin-top:26px}
+.links a,.links button{display:block;width:100%;font:700 17px 'Alegreya Sans',sans-serif;padding:14px;border-radius:12px;text-decoration:none;cursor:pointer;border:2px solid rgba(214,174,85,.55);background:transparent;color:var(--cream)}
+.links a.main{background:var(--cream);color:var(--green);border-color:var(--cream)}
+.links a:focus-visible,.links button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.foot{margin-top:24px;font-size:13px;color:rgba(242,231,205,.55)}
+</style>
+</head>
+<body>
+<main>
+  <div class="k">☘ The Craic Pack presents</div>
+  <img class="photo" src="anthem-group.jpg" alt="The Craic Pack: six friends in Irish fancy dress, pints in hand" width="900" height="750">
+  <h1>The Irish Exit</h1>
+  <h2>Six Pints to Dublin</h2>
+  <button class="play" id="play" type="button" aria-label="Play the anthem"><span class="ic" aria-hidden="true"><svg id="ico" viewBox="0 0 20 20"><path d="M5 3l12 7-12 7z"/></svg></span><span id="lbl">Play the anthem</span></button>
+  <div class="prog">
+    <div class="bar" id="bar" role="slider" aria-label="Song position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><i id="fill"></i></div>
+    <div class="times"><span id="cur">0:00</span><span id="dur">–:––</span></div>
+  </div>
+  <div class="links">
+    <a class="main" href="./">Visit the Craic Pack site →</a>
+    <button type="button" id="share">Share this song</button>
+  </div>
+  <div class="foot">Dublin · 23–25 October 2026</div>
+</main>
+<audio id="a" src="audio/group.mp3" preload="metadata"></audio>
+<script>
+(function(){
+  var a=document.getElementById('a'),btn=document.getElementById('play'),lbl=document.getElementById('lbl'),ico=document.getElementById('ico'),
+      bar=document.getElementById('bar'),fill=document.getElementById('fill'),cur=document.getElementById('cur'),dur=document.getElementById('dur');
+  var PLAY='<path d="M5 3l12 7-12 7z"/>',PAUSE='<path d="M4 3h4v14H4zM12 3h4v14h-4z"/>';
+  function t(s){if(!isFinite(s))return '–:––';s=Math.floor(s);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function paint(){var on=!a.paused;btn.classList.toggle('on',on);ico.innerHTML=on?PAUSE:PLAY;lbl.textContent=on?'Pause':(a.currentTime>0&&!a.ended?'Keep playing':'Play the anthem');btn.setAttribute('aria-label',on?'Pause the anthem':'Play the anthem');}
+  function prog(){var p=a.duration?a.currentTime/a.duration*100:0;fill.style.width=p+'%';bar.setAttribute('aria-valuenow',Math.round(p));cur.textContent=t(a.currentTime);}
+  btn.addEventListener('click',function(){if(a.paused)a.play().catch(paint);else a.pause();});
+  ['play','pause','ended'].forEach(function(e){a.addEventListener(e,paint);});
+  a.addEventListener('ended',function(){a.currentTime=0;prog();});
+  a.addEventListener('timeupdate',prog);
+  a.addEventListener('loadedmetadata',function(){dur.textContent=t(a.duration);});
+  function seek(x){var r=bar.getBoundingClientRect();if(a.duration)a.currentTime=Math.max(0,Math.min(1,(x-r.left)/r.width))*a.duration;prog();}
+  bar.addEventListener('pointerdown',function(e){seek(e.clientX);bar.setPointerCapture(e.pointerId);});
+  bar.addEventListener('pointermove',function(e){if(bar.hasPointerCapture(e.pointerId))seek(e.clientX);});
+  bar.addEventListener('keydown',function(e){if(!a.duration)return;if(e.key==='ArrowRight')a.currentTime=Math.min(a.duration,a.currentTime+5);else if(e.key==='ArrowLeft')a.currentTime=Math.max(0,a.currentTime-5);else return;e.preventDefault();prog();});
+  var sh=document.getElementById('share'),url='https://seymonislam-sudo.github.io/dublin-2026/anthem.html';
+  sh.addEventListener('click',function(){
+    var d={title:'The Irish Exit — Six Pints to Dublin',text:'The Craic Pack anthem ☘🍺',url:url};
+    if(navigator.share){navigator.share(d).catch(function(){});return;}
+    (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(function(){sh.textContent='Link copied ✓';setTimeout(function(){sh.textContent='Share this song';},2000);},function(){prompt('Copy this link:',url);});
+  });
+})();
+</script>
+</body>
+</html>
